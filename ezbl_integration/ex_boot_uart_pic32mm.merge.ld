@@ -167,26 +167,26 @@ EZBL_AppEntry           = EZBL_APP_ebase_address + 0x801;   /* Function pointer 
 
 /* ezbl_tools generated rom size = 0x0000A8 */
 
-EZBL_BOOTLOADER_SIZE             =   0x00002000;
+EZBL_BOOTLOADER_SIZE             =   0x00002800;
 
 #define __EZBL_TOOLS_COMPUTED_APP_SPACE_GEOMETRY                                \
-    LONG(0x9D002000); LONG(0x9D040000);                                         \
+    LONG(0x9D002800); LONG(0x9D040000);                                         \
     LONG(0xBFC01740); LONG(0xBFC017C0);                                         \
     LONG(0xBFC017E8); LONG(0xBFC01800);
 
 #define __EZBL_TOOLS_COMPUTED_NO_PROGRAM_RANGES                                 \
-    LONG(0x9D000000); LONG(0x9D002018);                                         \
+    LONG(0x9D000000); LONG(0x9D002818);                                         \
     LONG(0xBFC00000); LONG(0xBFC01740);                                         \
     LONG(0xBFC017C0); LONG(0xBFC017E8);
 
 #define __EZBL_TOOLS_COMPUTED_NO_ERASE_RANGES                                   \
-    LONG(0x9D000000); LONG(0x9D002000);                                         \
+    LONG(0x9D000000); LONG(0x9D002800);                                         \
     LONG(0xBFC00000); LONG(0xBFC01740);                                         \
     LONG(0xBFC017C8); LONG(0xBFC017D0);                                         \
     LONG(0xBFC017E0); LONG(0xBFC017E8);
 
 #define __EZBL_TOOLS_COMPUTED_NO_VERIFY_RANGES                                  \
-    LONG(0x9D002000); LONG(0x9D002018);                                         \
+    LONG(0x9D002800); LONG(0x9D002818);                                         \
     LONG(0xBFC017C8); LONG(0xBFC017D0);                                         \
     LONG(0xBFC017E0); LONG(0xBFC017E8);
 
@@ -211,9 +211,9 @@ EZBL_BOOTLOADER_SIZE             =   0x00002000;
 
 #define __EZBL_RAM_POINTERS_TO_ISRS                                                             \
     EZBL_Vector56ISRPtr = .; /* RAM pointer to UART 2 Reception ISR */                          \
-    . += 4; /* = 0x9D001157 for Boot UART2_RXTXInterrupt() ISR or App ISR address for IRQ 56 */ \
+    . += 4; /* = 0x9D0013F5 for Boot UART2_RXTXInterrupt() ISR or App ISR address for IRQ 56 */ \
     EZBL_Vector57ISRPtr = .; /* RAM pointer to UART 2 Transmission ISR */                       \
-    . += 4; /* = 0x9D001157 for Boot UART2_RXTXInterrupt() ISR or App ISR address for IRQ 57 */ 
+    . += 4; /* = 0x9D0013F5 for Boot UART2_RXTXInterrupt() ISR or App ISR address for IRQ 57 */ 
 
 #define __EZBL_IVT_VECTOR_SAVE                                                                  \
       LONG(56);                                                                                 \
@@ -226,11 +226,11 @@ EZBL_BOOTLOADER_SIZE             =   0x00002000;
 #define __EZBL_TOOLS_COMPUTED_BOOTLOADER_RESERVED_RAM                                           \
       EZBL_RAM_AT_0x80000200 0x80000200 :                                                       \
       {                                                                                         \
-        *(EZBL_RAM_AT_0x80000200); /* [0x80000200, 0x80000344), contains 324 bytes */           \
+        *(EZBL_RAM_AT_0x80000200); /* [0x80000200, 0x80000348), contains 328 bytes */           \
       } > kseg0_data_mem                                                                        \
-      EZBL_RAM_AT_0x80000348 0x80000348 :                                                       \
+      EZBL_RAM_AT_0x80000350 0x80000350 :                                                       \
       {                                                                                         \
-        *(EZBL_RAM_AT_0x80000348); /* [0x80000348, 0x80000358), contains 16 bytes */            \
+        *(EZBL_RAM_AT_0x80000350); /* [0x80000350, 0x80000360), contains 16 bytes */            \
       } > kseg0_data_mem                                                                        
 /***============END OF FIRST PASS RESULTS SECTION=============================================================================================*/
 
@@ -261,11 +261,11 @@ SECTIONS
   } > configsfrs
   EZBL_ROM_AT_0x9D000000 0x9D000000 :
   {
-    *(EZBL_ROM_AT_0x9D000000); /* [0x9D000000, 0x9D002000), contains 8192 bytes */
+    *(EZBL_ROM_AT_0x9D000000); /* [0x9D000000, 0x9D002800), contains 10240 bytes */
   } > kseg0_program_mem
-  EZBL_appBootloadState 0x9D002000 :
+  EZBL_appBootloadState 0x9D002800 :
   {
-    KEEP(*(.EZBL_appBootloadState*)); /* [0x9D002000, 0x9D00201C), contains 28 bytes */
+    KEEP(*(.EZBL_appBootloadState*)); /* [0x9D002800, 0x9D00281C), contains 28 bytes */
   } >kseg0_program_mem
 
 
@@ -1222,10 +1222,10 @@ SECTIONS
 
   EZBL_RAM_AT_0x80000200 0x80000200 :
   {
-    *(EZBL_RAM_AT_0x80000200); /* [0x80000200, 0x80000344), contains 324 bytes */
+    *(EZBL_RAM_AT_0x80000200); /* [0x80000200, 0x80000348), contains 328 bytes */
   } > kseg0_data_mem
-  EZBL_RAM_AT_0x80000348 0x80000348 :
+  EZBL_RAM_AT_0x80000350 0x80000350 :
   {
-    *(EZBL_RAM_AT_0x80000348); /* [0x80000348, 0x80000358), contains 16 bytes */
+    *(EZBL_RAM_AT_0x80000350); /* [0x80000350, 0x80000360), contains 16 bytes */
   } > kseg0_data_mem
 }

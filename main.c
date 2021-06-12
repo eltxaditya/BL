@@ -66,7 +66,6 @@ int __attribute__((keep)) (*EZBL_AppPreInstall)(EZBL_FIFO *rxFromRemote, EZBL_FI
 
 int main(void)
 {
-    unsigned long ledTimer;
 
     // Configure interrupt vectoring. The forwarding destination/addresses will
     // be undefined until this (or EZBL_ForwardAllIRQToApp()) is called at least
@@ -80,19 +79,10 @@ int main(void)
     EZBL_bootCtx.timeout = BOOTLOADER_TIMEOUT;
     EZBL_bootCtx.lastActivity = NOW_32();
 
-    ledTimer = NOW_32();
 
     while(1)
     {
         ClrWdt();
-
-        // Every 62.5ms toggle a heartbeat LED (8 Hz blink rate) indicating this Bootloader is executing
-        if(NOW_32() - ledTimer > NOW_sec/16u)
-        {
-            ledTimer += NOW_sec/16u;
-            LEDToggle(0x01);            // Toggles an LED pin according to EZBL_DefineLEDMap() in hardware initializer
-        }
-
         // Check for new firmware offerings or continue an existing bootload session
         EZBL_BootloaderTask();
     }

@@ -20,6 +20,8 @@
         <itemPath>hardware_initializers/pic32mm0256gpm064_explorer_16.c</itemPath>
       </logicalFolder>
       <itemPath>main.c</itemPath>
+      <itemPath>EZBL_Install2Flash.c</itemPath>
+      <itemPath>uart2_fifo.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

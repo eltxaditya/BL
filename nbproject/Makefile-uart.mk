@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=hardware_initializers/pic32mm0256gpm064_explorer_16.c main.c
+SOURCEFILES_QUOTED_IF_SPACED=hardware_initializers/pic32mm0256gpm064_explorer_16.c main.c EZBL_Install2Flash.c uart2_fifo.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/hardware_initializers/pic32mm0256gpm064_explorer_16.o ${OBJECTDIR}/main.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/hardware_initializers/pic32mm0256gpm064_explorer_16.o.d ${OBJECTDIR}/main.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/hardware_initializers/pic32mm0256gpm064_explorer_16.o ${OBJECTDIR}/main.o ${OBJECTDIR}/EZBL_Install2Flash.o ${OBJECTDIR}/uart2_fifo.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/hardware_initializers/pic32mm0256gpm064_explorer_16.o.d ${OBJECTDIR}/main.o.d ${OBJECTDIR}/EZBL_Install2Flash.o.d ${OBJECTDIR}/uart2_fifo.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/hardware_initializers/pic32mm0256gpm064_explorer_16.o ${OBJECTDIR}/main.o
+OBJECTFILES=${OBJECTDIR}/hardware_initializers/pic32mm0256gpm064_explorer_16.o ${OBJECTDIR}/main.o ${OBJECTDIR}/EZBL_Install2Flash.o ${OBJECTDIR}/uart2_fifo.o
 
 # Source Files
-SOURCEFILES=hardware_initializers/pic32mm0256gpm064_explorer_16.c main.c
+SOURCEFILES=hardware_initializers/pic32mm0256gpm064_explorer_16.c main.c EZBL_Install2Flash.c uart2_fifo.c
 
 
 
@@ -119,6 +119,18 @@ ${OBJECTDIR}/main.o: main.c  .generated_files/flags/uart/7f04abc8a1cbd0beeda7ffa
 	@${RM} ${OBJECTDIR}/main.o 
 	${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG   -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -ffunction-sections -O1 -Wall -MP -MMD -MF "${OBJECTDIR}/main.o.d" -o ${OBJECTDIR}/main.o main.c    -DXPRJ_uart=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -G 8192 -mbranch-cost=1   
 	
+${OBJECTDIR}/EZBL_Install2Flash.o: EZBL_Install2Flash.c  .generated_files/flags/uart/17084363c2793ff05769f70456b367b5f9696492 .generated_files/flags/uart/aee838e5dba634819b3629384be35de812dc739e
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/EZBL_Install2Flash.o.d 
+	@${RM} ${OBJECTDIR}/EZBL_Install2Flash.o 
+	${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG   -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -ffunction-sections -O1 -Wall -MP -MMD -MF "${OBJECTDIR}/EZBL_Install2Flash.o.d" -o ${OBJECTDIR}/EZBL_Install2Flash.o EZBL_Install2Flash.c    -DXPRJ_uart=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -G 8192 -mbranch-cost=1   
+	
+${OBJECTDIR}/uart2_fifo.o: uart2_fifo.c  .generated_files/flags/uart/8ae92e65fcecd646310743866c7d7287570c46de .generated_files/flags/uart/aee838e5dba634819b3629384be35de812dc739e
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/uart2_fifo.o.d 
+	@${RM} ${OBJECTDIR}/uart2_fifo.o 
+	${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG   -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -ffunction-sections -O1 -Wall -MP -MMD -MF "${OBJECTDIR}/uart2_fifo.o.d" -o ${OBJECTDIR}/uart2_fifo.o uart2_fifo.c    -DXPRJ_uart=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -G 8192 -mbranch-cost=1   
+	
 else
 ${OBJECTDIR}/hardware_initializers/pic32mm0256gpm064_explorer_16.o: hardware_initializers/pic32mm0256gpm064_explorer_16.c  .generated_files/flags/uart/5702fa0e82154ca01fb2c74f8840151359884282 .generated_files/flags/uart/aee838e5dba634819b3629384be35de812dc739e
 	@${MKDIR} "${OBJECTDIR}/hardware_initializers" 
@@ -131,6 +143,18 @@ ${OBJECTDIR}/main.o: main.c  .generated_files/flags/uart/d06f2ac3bac5b8e8ba1cfc2
 	@${RM} ${OBJECTDIR}/main.o.d 
 	@${RM} ${OBJECTDIR}/main.o 
 	${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -ffunction-sections -O1 -Wall -MP -MMD -MF "${OBJECTDIR}/main.o.d" -o ${OBJECTDIR}/main.o main.c    -DXPRJ_uart=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -G 8192 -mbranch-cost=1   
+	
+${OBJECTDIR}/EZBL_Install2Flash.o: EZBL_Install2Flash.c  .generated_files/flags/uart/c8a56cf5c5fe2c7084546c39eb682904a5721979 .generated_files/flags/uart/aee838e5dba634819b3629384be35de812dc739e
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/EZBL_Install2Flash.o.d 
+	@${RM} ${OBJECTDIR}/EZBL_Install2Flash.o 
+	${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -ffunction-sections -O1 -Wall -MP -MMD -MF "${OBJECTDIR}/EZBL_Install2Flash.o.d" -o ${OBJECTDIR}/EZBL_Install2Flash.o EZBL_Install2Flash.c    -DXPRJ_uart=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -G 8192 -mbranch-cost=1   
+	
+${OBJECTDIR}/uart2_fifo.o: uart2_fifo.c  .generated_files/flags/uart/473c87c856abcbb7adf2e6d513636d33e5a7f0ad .generated_files/flags/uart/aee838e5dba634819b3629384be35de812dc739e
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/uart2_fifo.o.d 
+	@${RM} ${OBJECTDIR}/uart2_fifo.o 
+	${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -ffunction-sections -O1 -Wall -MP -MMD -MF "${OBJECTDIR}/uart2_fifo.o.d" -o ${OBJECTDIR}/uart2_fifo.o uart2_fifo.c    -DXPRJ_uart=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -G 8192 -mbranch-cost=1   
 	
 endif
 

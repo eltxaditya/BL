@@ -1,0 +1,1 @@
+ $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -ffunction-sections -O1 -Wall   -DXPRJ_uart=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -G 8192 -mbranch-cost=1   /home/u/MPLABXProjects/BL/ex_boot_uart_pic32mm/uart2_fifo.c

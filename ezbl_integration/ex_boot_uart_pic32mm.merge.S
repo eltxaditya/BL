@@ -51,9 +51,9 @@ EZBL_metaAppIDVerMajor:
 
 #if !defined(EZBL_HIDE_BOOT_SYMBOLS)
     # Bootloader RAM block intended for 'kseg0_data_mem' region
-    # 0x80000200 to 0x80000348, length 0x0148 (328 bytes)
+    # 0x80000200 to 0x8000034C, length 0x014C (332 bytes)
     .pushsection    EZBL_RAM_AT_0x80000200, address(0x80000200), persist, keep
-    .space      0x148
+    .space      0x14C
     .popsection
     # Bootloader RAM block intended for 'kseg0_data_mem' region
     # 0x80000350 to 0x80000360, length 0x0010 (16 bytes)
@@ -116,7 +116,7 @@ NOW_CORETMR_ResetConst:         # 0x9D000000
 __vector_dispatch_56:           # 0x9D00001C
     .set        micromips
     .insn
-    .word       0x09FAD680
+    .word       0x0A84D680
     .word       0x0C000C00
     .word       0x00000039
     .size       __vector_dispatch_56, . - __vector_dispatch_56   # 12
@@ -127,7 +127,7 @@ __vector_dispatch_56:           # 0x9D00001C
 __vector_dispatch_57:           # 0x9D000028
     .set        micromips
     .insn
-    .word       0x09FAD680
+    .word       0x0A84D680
     .word       0x0C000C00
     .size       __vector_dispatch_57, . - __vector_dispatch_57   # 8
     .end        __vector_dispatch_57
@@ -206,7 +206,7 @@ strlen:                         # 0x9D000030
     .word       0x4C860003
     .word       0x0529459F
     .word       0x9D0041BA
-    .word       0x1E5D335A
+    .word       0x204D335A
     .word       0x0C00459A
     .size       strlen, . - strlen   # 284
     .end        strlen
@@ -233,12 +233,12 @@ LEDOff:                         # 0x9D000168
     .insn
     .word       0xCBE54FF5
     .word       0x9D0041A5
-    .word       0x03C8F680
-    .word       0x206030A5
+    .word       0x0E48F680
+    .word       0x225030A5
     .word       0x4BE54412
     .word       0x4C0D459F
     .word       0x9D0041BA
-    .word       0x1AF1335A
+    .word       0x1C05335A
     .word       0x0C00459A
     .size       LEDOff, . - LEDOff   # 36
     .end        LEDOff
@@ -343,27 +343,27 @@ InitializeBoard:                # 0x9D00018C
     .word       0x0314FC70
     .word       0x25B82534
     .word       0x26260534
-    .word       0x0FEA7680
+    .word       0x10E27680
     .word       0xF6800629
     .word       0x30800312
     .word       0x41A2FFE7
     .word       0x30428000
     .word       0xF85C02E0
-    .word       0x41A28030
+    .word       0x41A28034
     .word       0x30428000
     .word       0xF85C02B8
-    .word       0x41A38034
+    .word       0x41A38038
     .word       0xF8438000
     .word       0x76800200
-    .word       0x0C801046
+    .word       0x0C801138
     .word       0xFFFF5080
     .word       0x9D0041A5
-    .word       0x206030A5
+    .word       0x225030A5
     .word       0xBF8041A2
     .word       0x2BE03042
     .word       0xBF8041A6
     .word       0x2BC030C6
-    .word       0x03C67680
+    .word       0x0E467680
     .word       0x3060072D
     .word       0x41A20200
     .word       0xF862BF80
@@ -379,7 +379,7 @@ InitializeBoard:                # 0x9D00018C
     .word       0x0000D084
     .word       0x0000D0A5
     .word       0x9D0041A8
-    .word       0x1CA13108
+    .word       0x1ED13108
     .word       0x000045C8
     .word       0x41A20000
     .word       0x30420000
@@ -450,7 +450,7 @@ UART2_RXInterruptFunc:          # 0x9D000460
     .insn
     .word       0x45644FF1
     .word       0x800041A4
-    .word       0x0B10F680
+    .word       0x0B9AF680
     .word       0x02B83084
     .word       0xBF8041A2
     .word       0x1900FC42
@@ -459,7 +459,7 @@ UART2_RXInterruptFunc:          # 0x9D000460
     .word       0x3160BF80
     .word       0x41A90002
     .word       0x31299D00
-    .word       0x314020A4
+    .word       0x31402288
     .word       0x41A70001
     .word       0x30878000
     .word       0x41B802B8
@@ -493,32 +493,32 @@ UART2_RXInterruptFunc:          # 0x9D000460
     .word       0x19003066
     .word       0x0014F963
     .word       0x00105042
-    .word       0x801C147C
+    .word       0x8020147C
     .word       0x01232DB5
     .word       0x1E484150
     .word       0x01050000
     .word       0xB5122B3C
     .word       0x6DB0000E
-    .word       0x801C187C
+    .word       0x8020187C
     .word       0x0008B063
     .word       0x000940A3
     .word       0x00805042
-    .word       0x8020F89C
+    .word       0x8024F89C
     .word       0xFB1CCC04
-    .word       0x195C8024
-    .word       0xFD07801C
+    .word       0x195C8028
+    .word       0xFD078020
     .word       0x69C302B8
     .word       0x1B900068
     .word       0xFC7CAD85
-    .word       0xCC518028
+    .word       0xCC51802C
     .word       0x80105042
     .word       0x001340A3
     .word       0x0004B5A5
     .word       0xCC340C00
-    .word       0x8028F99C
+    .word       0x802CF99C
     .word       0x0004B5C5
     .word       0xCC2E0C00
-    .word       0x8028F97C
+    .word       0x802CF97C
     .word       0x310369C1
     .word       0xF9040001
     .word       0xCC260004
@@ -540,7 +540,7 @@ UART2_RXInterruptFunc:          # 0x9D000460
     .word       0x310369C1
     .word       0xF9040001
     .word       0x8AB00004
-    .word       0x8028F81C
+    .word       0x802CF81C
     .word       0x6AC369C4
     .word       0xFD0406D6
     .word       0x00A80004
@@ -616,16 +616,16 @@ UART2_ResetBRG:                 # 0x9D000624
     .word       0xEF200298
     .word       0x9D0041A7
     .word       0x00A6F680
-    .word       0x14D130E7
+    .word       0x15E530E7
     .word       0x9D0041A2
-    .word       0x19E93042
+    .word       0x1AFD3042
     .word       0x0C94C844
     .word       0x800041A5
     .word       0x023830A5
     .word       0x7680EF60
     .word       0x0CE000A6
     .word       0x9D0041A2
-    .word       0x17AD3042
+    .word       0x18C13042
     .word       0x001CF852
     .word       0xBF8041A2
     .word       0x35C03042
@@ -648,119 +648,54 @@ UART2_ResetBRG:                 # 0x9D000624
     .word       0x0202630C
     .word       0xFA037BCC
     .word       0x0C940010
-    .word       0x0B087680
+    .word       0x0B927680
     .word       0x0C92EE81
-    .word       0x0B087680
+    .word       0x0B927680
     .word       0x7680EE81
-    .word       0x0C940B22
-    .word       0x0B227680
+    .word       0x0C940BAC
+    .word       0x0BAC7680
     .word       0x22BD0C92
     .word       0x459F5018
     .word       0x0C004C19
     .size       UART2_ResetBRG, . - UART2_ResetBRG   # 352
     .end        UART2_ResetBRG
 
-    .ent        EZBL_MapWriteEx
-    .type       EZBL_MapWriteEx, @function
-EZBL_MapWriteEx:                # 0x9D000784
+    .ent        memset
+    .type       memset, @function
+memset:                         # 0x9D000784
     .set        micromips
     .insn
-    .word       0xED80CC0F
-    .size       EZBL_MapWriteEx, . - EZBL_MapWriteEx   # 4
-    .end        EZBL_MapWriteEx
-
-    .ent        EZBL_MapWrite
-    .type       EZBL_MapWrite, @function
-EZBL_MapWrite:                  # 0x9D000788
-    .set        micromips
-    .insn
-    .word       0xED80CC0C
-    .size       EZBL_MapWrite, . - EZBL_MapWrite   # 4
-    .end        EZBL_MapWrite
-
-    .ent        EZBL_MapClrEx
-    .type       EZBL_MapClrEx, @function
-EZBL_MapClrEx:                  # 0x9D00078C
-    .set        micromips
-    .insn
-    .word       0xED84CC0B
-    .size       EZBL_MapClrEx, . - EZBL_MapClrEx   # 4
-    .end        EZBL_MapClrEx
-
-    .ent        EZBL_MapClr
-    .type       EZBL_MapClr, @function
-EZBL_MapClr:                    # 0x9D000790
-    .set        micromips
-    .insn
-    .word       0xED84CC08
-    .size       EZBL_MapClr, . - EZBL_MapClr   # 4
-    .end        EZBL_MapClr
-
-    .ent        EZBL_MapSetEx
-    .type       EZBL_MapSetEx, @function
-EZBL_MapSetEx:                  # 0x9D000794
-    .set        micromips
-    .insn
-    .word       0xED88CC07
-    .size       EZBL_MapSetEx, . - EZBL_MapSetEx   # 4
-    .end        EZBL_MapSetEx
-
-    .ent        EZBL_MapSet
-    .type       EZBL_MapSet, @function
-EZBL_MapSet:                    # 0x9D000798
-    .set        micromips
-    .insn
-    .word       0xED88CC04
-    .size       EZBL_MapSet, . - EZBL_MapSet   # 4
-    .end        EZBL_MapSet
-
-    .ent        EZBL_MapInvEx
-    .type       EZBL_MapInvEx, @function
-EZBL_MapInvEx:                  # 0x9D00079C
-    .set        micromips
-    .insn
-    .word       0xED8CCC03
-    .size       EZBL_MapInvEx, . - EZBL_MapInvEx   # 4
-    .end        EZBL_MapInvEx
-
-    .ent        EZBL_MapInv
-    .type       EZBL_MapInv, @function
-EZBL_MapInv:                    # 0x9D0007A0
-    .set        micromips
-    .insn
-    .word       0xEF00ED8C
-    .word       0x0D608EA2
-    .word       0xFD050DE5
-    .word       0x0DA00000
-    .word       0x3140CC18
-    .word       0x4DA20001
-    .word       0x391801AF
-    .word       0x246C0047
-    .word       0xAC4C00E0
-    .word       0x6AF007EE
-    .word       0x10100142
-    .word       0x8E8444AA
-    .word       0x72500184
-    .word       0x5950018B
-    .word       0x07BE8D8A
-    .word       0x105801C0
-    .word       0xB50DE970
-    .word       0x014DFFE8
-    .word       0x459F6010
-    .word       0xEE840C4B
-    .word       0x285801C0
-    .word       0xCFF507DE
-    .short      0xE971
-    .size       EZBL_MapInv, . - EZBL_MapInv   # 90
-    .end        EZBL_MapInv
-
-    .ent        EZBL_FIFORead
-    .type       EZBL_FIFORead, @function
-EZBL_FIFORead:                  # 0x9D0007FA
-    .set        micromips
-    .insn
-    .short      0xD680
-    .word       0x0CE00B84
+    .word       0x8F3A0C44
+    .word       0x0010B146
+    .word       0x002EB40A
+    .word       0x00FFD0A5
+    .word       0x40000145
+    .word       0x2A900145
+    .word       0x80000145
+    .word       0x2A900145
+    .word       0x0003D064
+    .word       0xEF848D86
+    .word       0x077D07BF
+    .word       0x900060A4
+    .word       0xD0660678
+    .word       0x07BD000F
+    .word       0x0CC38F8B
+    .word       0xEAC007CE
+    .word       0xEAC2EAC1
+    .word       0x00103084
+    .word       0xFFF9B4E4
+    .word       0xFFFCF8A4
+    .word       0x0003D066
+    .word       0x8F8807BD
+    .word       0x07CE0CC3
+    .word       0x00043084
+    .word       0xFFFCB4E4
+    .word       0xFFFCF8A4
+    .word       0x07CC8F07
+    .word       0x00013084
+    .word       0xFFFCB4E4
+    .word       0xFFFF18A4
+    .word       0x0C00459F
     .word       0x0404F680
     .word       0x00000000
     .word       0x00FC034C
@@ -768,10 +703,10 @@ EZBL_FIFORead:                  # 0x9D0007FA
     .word       0x0007941A
     .word       0x41BA0C00
     .word       0x335A9D00
-    .word       0x459A2035
+    .word       0x459A2225
     .word       0x41BD0C00
     .word       0x33BD8000
-    .word       0x41BC7FF8
+    .word       0x41BC7FF0
     .word       0x339C8001
     .word       0x012C8310
     .word       0x000910FC
@@ -784,12 +719,12 @@ EZBL_FIFORead:                  # 0x9D0007FA
     .word       0x000012FC
     .word       0x41A81800
     .word       0x31089D00
-    .word       0x45C820B5
+    .word       0x45C8229D
     .word       0x00000000
     .word       0x800041A8
-    .word       0x03283108
+    .word       0x032C3108
     .word       0x800041A9
-    .word       0x03483129
+    .word       0x034C3129
     .word       0x0C00CC0B
     .word       0x0000F808
     .word       0x0004F808
@@ -800,7 +735,7 @@ EZBL_FIFORead:                  # 0x9D0007FA
     .word       0xFFF2B401
     .word       0x41A80C00
     .word       0x31089D00
-    .word       0x45C81B71
+    .word       0x45C81CFD
     .word       0x00000000
     .word       0x000041A9
     .word       0x00003129
@@ -841,7 +776,7 @@ EZBL_FIFORead:                  # 0x9D0007FA
     .word       0x000002FC
     .word       0x41A81800
     .word       0x31089D00
-    .word       0x45C820B9
+    .word       0x45C822A1
     .word       0x00000000
     .word       0x00FC010C
     .word       0xFFBF41A1
@@ -853,49 +788,50 @@ EZBL_FIFORead:                  # 0x9D0007FA
     .word       0x9D0041A8
     .word       0x03793108
     .word       0x0C004588
-    .size       EZBL_FIFORead, . - EZBL_FIFORead   # 374
-    .end        EZBL_FIFORead
+    .size       memset, . - memset   # 492
+    .end        memset
 
     .ent        EZBL_Install2Flash
     .type       EZBL_Install2Flash, @function
 EZBL_Install2Flash:             # 0x9D000970
     .set        micromips
     .insn
-    .word       0x231D4FA5
-    .word       0x0E04D094
-    .word       0x8020FC5C
-    .word       0x0E20AD04
-    .word       0x039A9400
-    .word       0x41B2E840
-    .word       0x32529D00
-    .word       0x02520971
-    .word       0x41B4E02C
-    .word       0x3294BF81
-    .word       0x41B3F0C4
-    .word       0x3273BF81
-    .word       0x0274F140
-    .word       0xFCBCAB90
-    .word       0xFEC58020
-    .word       0x69000000
-    .word       0x0009B042
-    .word       0x03099402
-    .word       0x9D0041A2
-    .word       0x30426980
-    .word       0x006209C8
-    .word       0x45A21118
-    .word       0x9D0009ED
-    .word       0x9D000A59
-    .word       0x9D000C5D
-    .word       0x9D000CC9
-    .word       0x9D000D4F
-    .word       0x9D000E2B
-    .word       0x9D000E91
-    .word       0x9D000F19
-    .word       0x9D000F95
-    .word       0x0030B2D6
-    .word       0x0344B416
+    .word       0x233D4F85
+    .word       0x0E04D0D0
+    .word       0x8024FC5C
+    .word       0x0E40AD04
+    .word       0x04239400
+    .word       0x41B6E840
+    .word       0x32D69D00
+    .word       0x02D60971
+    .word       0x41BEE02C
+    .word       0x33DEBF81
+    .word       0x41B7F0C4
+    .word       0x32F7BF81
+    .word       0x02FEF140
+    .word       0xF85D1390
+    .word       0xFCBC00C8
+    .word       0x68D08024
+    .word       0xB0426900
+    .word       0x94020009
+    .word       0x41A20392
+    .word       0x69809D00
+    .word       0x09CC3042
+    .word       0x11180062
+    .word       0x0C0045A2
+    .word       0x9D0009F1
+    .word       0x9D000A5D
+    .word       0x9D000C65
+    .word       0x9D000CA5
+    .word       0x9D000D29
+    .word       0x9D000F41
+    .word       0x9D000FA7
+    .word       0x9D00102F
+    .word       0x9D0010AD
+    .word       0x0030B231
+    .word       0x03C9B411
     .word       0x76806E0D
-    .word       0xEF301056
+    .word       0xEF30114B
     .word       0xEE426D0D
     .word       0x09A0EEAC
     .word       0x001AB483
@@ -907,38 +843,38 @@ EZBL_Install2Flash:             # 0x9D000970
     .word       0x44DE0042
     .word       0x40A32DBD
     .word       0xFCBC000B
-    .word       0x6B508024
-    .word       0x03FD7680
+    .word       0x6B508028
+    .word       0x11487680
     .word       0xED010C80
     .word       0xCC07E900
-    .word       0x000132E0
-    .word       0xB4B64EC2
+    .word       0x00013260
+    .word       0xB4B16C90
     .word       0x6D20FFE0
-    .word       0x0C800EE0
-    .word       0x8020FCBC
-    .word       0x03FD7680
-    .word       0x94000CD6
-    .word       0x0C00031D
-    .word       0x0030B2D6
-    .word       0x0327B416
+    .word       0x0C800E60
+    .word       0x8024FCBC
+    .word       0x11487680
+    .word       0x94000CD1
+    .word       0x0C0003A2
+    .word       0x0030B231
+    .word       0x03AEB411
     .word       0x76806E0D
-    .word       0xEF3003FD
+    .word       0xEF301148
     .word       0x6E8D0C80
-    .word       0x0F627680
+    .word       0x105A7680
     .word       0xE907EF30
     .word       0x30424847
     .word       0xE906FFD8
     .word       0x3850ED01
     .word       0x41A4002C
     .word       0x30849D00
-    .word       0x6E912070
-    .word       0x100B7680
+    .word       0x6E912260
+    .word       0x11037680
     .word       0x8D0AEF10
     .word       0x304048AC
     .word       0x3850FFEA
     .word       0xED08002C
     .word       0x9400E900
-    .word       0x0EE002F5
+    .word       0x0E60037A
     .word       0xEA82488D
     .word       0x3040EA03
     .word       0x8D1E0000
@@ -961,8 +897,8 @@ EZBL_Install2Flash:             # 0x9D000970
     .word       0xFFE93040
     .word       0x002C3850
     .word       0xE900ED07
-    .word       0x02C69400
-    .word       0x000132E0
+    .word       0x034B9400
+    .word       0x00013260
     .word       0x486E6A29
     .word       0x6D2244DC
     .word       0xFFFAB4A2
@@ -972,67 +908,68 @@ EZBL_Install2Flash:             # 0x9D000970
     .word       0x002C3850
     .word       0xE900ED07
     .word       0x9D0041A2
-    .word       0x2080FC82
-    .word       0x20803042
+    .word       0x1E2CFC82
+    .word       0x1E2C3042
     .word       0xC89C69A1
     .word       0x2924C87D
     .word       0x0078385D
     .word       0x00187680
     .word       0xFC9C6E39
-    .word       0x6EB98024
-    .word       0x0D367680
+    .word       0x6EB98028
+    .word       0x0DC07680
     .word       0x94000CC2
-    .word       0x32E0029D
+    .word       0x32600322
     .word       0x30420001
-    .word       0x8D161E29
-    .word       0x8020FC9C
+    .word       0x8D162019
+    .word       0x8024FC9C
     .word       0xFCBC6B06
-    .word       0x30C68024
+    .word       0x30C68028
     .word       0x76800040
-    .word       0x6F840F14
+    .word       0x6F84100C
     .word       0x000A40C2
     .word       0xFFE53040
     .word       0x002C3850
     .word       0xE900ED07
-    .word       0x02849400
-    .word       0x000132E0
-    .word       0x08FC022F
+    .word       0x03099400
+    .word       0x00013260
+    .word       0x08FC024F
     .word       0x9D0041A2
     .word       0x00003042
-    .word       0x40F104A3
-    .word       0x00030020
-    .word       0x0000477C
-    .word       0x004F1800
-    .word       0x94150AFC
-    .word       0x0C540008
+    .word       0x91D00052
+    .word       0x002140F2
+    .word       0x477C0003
+    .word       0x18000000
+    .word       0x0AFC004F
+    .word       0x00C8FC7D
+    .word       0x0C5E8D88
     .word       0xEA20EE7F
-    .word       0x02626D28
+    .word       0x02E26D28
     .word       0x40A31B90
     .word       0x7680FFFA
-    .word       0x0C800E94
+    .word       0x0C800FAC
     .word       0x577C0002
     .word       0x01DE7680
     .word       0xF6800C00
-    .word       0xFC9C0B22
-    .word       0xF6808020
-    .word       0xFC9C0B22
-    .word       0x41A28024
+    .word       0xFC9C0BAC
+    .word       0xF6808024
+    .word       0xFC9C0BAC
+    .word       0x41A28028
     .word       0xF802BF80
     .word       0x41A32940
     .word       0xFCA39D00
-    .word       0x48872070
+    .word       0x48872260
     .word       0x41A54465
     .word       0x30A5AA99
     .word       0x44656655
     .word       0x2940F882
-    .word       0x20703063
+    .word       0x22603063
     .word       0x48886B31
     .word       0x41A44474
     .word       0x50845566
     .word       0x447499AA
     .word       0x2940F8C2
     .word       0x800041A7
-    .word       0x3A9000F2
+    .word       0x3A9000F6
     .word       0xBF8041A6
     .word       0x2990F8E6
     .word       0x2940F802
@@ -1048,122 +985,190 @@ EZBL_Install2Flash:             # 0x9D000970
     .word       0xE809E808
     .word       0xE901ED08
     .word       0xE900ED02
-    .word       0x8024FC9C
-    .word       0xAD086940
-    .word       0xFF135040
-    .word       0x0088F85D
-    .word       0x76806EC5
-    .word       0xEF020D36
-    .word       0x30608C87
-    .word       0x41A25743
-    .word       0x3042BF80
-    .word       0xA9A33990
-    .word       0x802CFC7C
-    .word       0x69086A01
-    .word       0x50800528
-    .word       0x0544FC19
-    .word       0xF85C0534
-    .word       0xF680802C
-    .word       0x30900C24
-    .word       0xB4020024
-    .word       0x0EE001F5
-    .word       0xFF115040
-    .word       0x0084F85D
-    .word       0x8024FC9C
-    .word       0x76806EC3
-    .word       0xEF020D36
-    .word       0x8020FC5C
-    .word       0x0000FEC2
+    .word       0x00079412
+    .word       0x57433060
+    .word       0xBF8041A2
+    .word       0x39903042
+    .word       0xFC7CA9A3
+    .word       0x6A018030
+    .word       0x05286908
+    .word       0xFC195080
+    .word       0x05340544
+    .word       0x8030F85C
+    .word       0x0CAEF680
+    .word       0x00243090
+    .word       0x0283B402
+    .word       0xFC5C0E60
+    .word       0x68A08024
     .word       0x00283810
     .word       0xE900ED04
     .word       0xB0426906
     .word       0x8D080025
     .word       0x3850ED24
     .word       0xED06002A
-    .word       0xCC38E901
-    .word       0x000132E0
+    .word       0xCC37E901
+    .word       0x00013280
     .word       0xAD086908
-    .word       0x000132E0
+    .word       0x00013280
     .word       0x3850ED08
     .word       0xED03002A
-    .word       0xE901CC2D
-    .word       0x802CFC7C
+    .word       0xE901CC2C
+    .word       0x8030FC7C
     .word       0x03DF3063
-    .word       0x802CF87C
-    .word       0x0011B076
-    .word       0xD0768D86
-    .word       0xED90FFFF
-    .word       0x3870CC0A
-    .word       0x3870002A
-    .word       0xB063002A
-    .word       0xAD830031
-    .word       0x3870EDB0
-    .word       0x3470002A
-    .word       0x0043002A
-    .word       0x40A21390
-    .word       0x34500005
-    .word       0xCC060020
-    .word       0x002A3850
-    .word       0x100C0060
+    .word       0x8030F87C
+    .word       0x0011B071
+    .word       0x2D9F8D85
+    .word       0xCC0AED90
     .word       0x002A3870
-    .word       0xE901ED05
-    .word       0x32E0CC03
-    .word       0x0EE00001
-    .word       0x00203040
-    .word       0x0C628D35
-    .word       0x8024FC9C
-    .word       0x6B436AC0
-    .word       0xB0A506DD
-    .word       0xAEAC0006
-    .word       0x8020FCBC
-    .word       0x00456AD3
-    .word       0x00451390
-    .word       0x34D01818
-    .word       0x056B0028
-    .word       0x1B900062
-    .word       0x2EAD8D87
+    .word       0x002A3870
+    .word       0x0031B063
+    .word       0xEDB0AD83
+    .word       0x002A3870
     .word       0x002A3470
-    .word       0x1B900066
-    .word       0x001840E3
-    .word       0x70A56DAE
-    .word       0x00A30013
-    .word       0x00A21058
-    .word       0x30623A2C
-    .word       0x70A5FF00
-    .word       0x00A30013
-    .word       0x072C1058
-    .word       0x002838D0
-    .word       0x0080F85D
-    .word       0x76806EC1
-    .word       0xEF020D36
-    .word       0x000132E0
-    .word       0x002A34D0
-    .word       0xB39000D6
-    .word       0x0105B416
-    .word       0x34506E0D
-    .word       0x05650028
+    .word       0x13900043
+    .word       0x000540A2
+    .word       0x00203450
+    .word       0x3850CC06
+    .word       0x0060002A
+    .word       0x3870100C
+    .word       0xED05002A
+    .word       0xCC03E901
+    .word       0x00013280
+    .word       0x30400E80
+    .word       0x94020020
+    .word       0x0C6200D4
+    .word       0x8028FEBC
+    .word       0x0000FC95
+    .word       0x000CFCB5
+    .word       0xB084064B
+    .word       0xB4040006
+    .word       0xFC9C00C8
+    .word       0xFE648024
+    .word       0x0053000C
+    .word       0x00531390
+    .word       0x34501818
+    .word       0x00530028
+    .word       0x007399D0
+    .word       0x8D881B90
+    .word       0x00FFD093
+    .word       0x002A3470
+    .word       0x1B900062
+    .word       0x00B140E3
+    .word       0xFFFF3073
+    .word       0x00137084
+    .word       0x98580083
+    .word       0x3A2C0093
+    .word       0xFF003073
+    .word       0x00137084
+    .word       0x98580083
+    .word       0x11500262
     .word       0x00283850
-    .word       0x0018FED0
-    .word       0x03FDF680
-    .word       0x8020FCBC
-    .word       0x11D00056
-    .word       0x6A07E906
-    .word       0xF6806E8D
-    .word       0x34D00F62
-    .word       0xE907002A
-    .word       0xED836901
-    .word       0x0140B462
-    .word       0x3090E900
-    .word       0x6E8D0020
-    .word       0x0E72F680
+    .word       0x9D0041A2
+    .word       0x1E383042
+    .word       0x30826DB9
+    .word       0xFD020030
+    .word       0x6BA10000
+    .word       0x6AA36B22
+    .word       0x0000F903
+    .word       0xEB32EBB1
+    .word       0x6D28EAB3
+    .word       0xFFF3B482
+    .word       0x2A206DB8
+    .word       0x0922AA30
+    .word       0x309D8932
+    .word       0x0CA000A3
+    .word       0x03C27680
+    .word       0x41A2EF13
+    .word       0x5042CCCC
+    .word       0x0053CCCD
+    .word       0x46029B3C
+    .word       0x30622527
+    .word       0x187D0030
+    .word       0x25A200A2
+    .word       0x05262526
+    .word       0x11D00053
+    .word       0x00303042
+    .word       0x00A3185D
+    .word       0x185DED2C
+    .word       0xFC7C00A4
+    .word       0xF81D8018
+    .word       0xF81D00B8
+    .word       0x8DBA00BC
+    .word       0x00C0F81D
+    .word       0x41A90C40
+    .word       0x5129CCCC
+    .word       0x6EA0CCCD
+    .word       0x27222EDF
+    .word       0x07686E0D
+    .word       0x9B3C0123
+    .word       0x26474604
+    .word       0x08000104
+    .word       0x00E827C6
+    .word       0x05F73950
+    .word       0x00A03866
+    .word       0x0C648E03
+    .word       0x0C45CFEC
+    .word       0x0CE28E9F
+    .word       0x50C0EDB5
+    .word       0x6E30FFFF
+    .word       0x6E0D2ECF
+    .word       0x262205B8
+    .word       0x0018311D
+    .word       0x21500088
+    .word       0x00A01484
+    .word       0x00303084
+    .word       0x2D2F6D2E
+    .word       0x000494C2
+    .word       0x00581883
+    .word       0x0C65CFEC
+    .word       0x00363047
+    .word       0x2D2FCC04
+    .word       0xED35CC02
+    .word       0x6E0DED35
+    .word       0xEE0D05A8
+    .word       0x00581883
+    .word       0x2DBF6DA0
+    .word       0x0018311D
+    .word       0x19500068
+    .word       0x1883EE0A
+    .word       0x4C440058
+    .word       0x00482D2F
+    .word       0x18021150
+    .word       0x76800058
+    .word       0x6E390018
+    .word       0x6EB90C95
+    .word       0x0DC07680
+    .word       0xFC5C0CC2
+    .word       0x02628018
+    .word       0xFA7C9950
+    .word       0x32808018
+    .word       0x34D00001
+    .word       0x00D1002A
+    .word       0xB4118B90
+    .word       0x6E0D0102
+    .word       0x00283450
+    .word       0x38500565
+    .word       0x68860028
+    .word       0x1148F680
+    .word       0x8024FCBC
+    .word       0xE9060523
+    .word       0x6E8D6A07
+    .word       0x105AF680
     .word       0x002A34D0
-    .word       0x00231450
-    .word       0x01379402
-    .word       0xFFEB3040
-    .word       0x002C3850
-    .word       0xE900ED07
-    .word       0x32E0CD35
-    .word       0x8C870001
+    .word       0x6901E907
+    .word       0xB462ED83
+    .word       0xE900013C
+    .word       0x00203090
+    .word       0xF6806E8D
+    .word       0x34D00F8A
+    .word       0x1450002A
+    .word       0x94020023
+    .word       0x30400133
+    .word       0x3850FFEB
+    .word       0xED07002C
+    .word       0xCD31E900
+    .word       0x00013260
+    .word       0x00079412
     .word       0x57433060
     .word       0xBF8041A2
     .word       0x39903042
@@ -1171,185 +1176,184 @@ EZBL_Install2Flash:             # 0x9D000970
     .word       0x002A34D0
     .word       0xC805C804
     .word       0x76806E8D
-    .word       0x0CE0104C
-    .word       0x6A090EC2
+    .word       0x0CE0113E
+    .word       0x6A090E22
     .word       0x34D06E8D
     .word       0x7680002A
-    .word       0x6FA50CB1
-    .word       0x0024FAD0
-    .word       0x002A3470
-    .word       0x05B96A08
-    .word       0xED83E988
-    .word       0x00074042
-    .word       0x3060E980
-    .word       0x3870FFE8
-    .word       0xED87002C
-    .word       0x4082E980
-    .word       0x30400105
-    .word       0x3850FFE7
-    .word       0xCD02002C
-    .word       0x000132E0
-    .word       0x802CFC5C
-    .word       0x03DF3042
-    .word       0x802CF85C
-    .word       0x41A26987
-    .word       0x50422144
-    .word       0xB443DF1C
-    .word       0x30400033
-    .word       0x3040FFE6
-    .word       0x385D12CD
-    .word       0x69020068
-    .word       0xC8566983
-    .word       0x484DC877
-    .word       0x484EC858
-    .word       0x5040C859
-    .word       0xC844DEAD
-    .word       0x41A4C805
-    .word       0x30849D00
-    .word       0x6EAD2800
-    .word       0x7680EF18
-    .word       0x0CE0104C
-    .word       0xBF8041A3
-    .word       0x2930FC43
-    .word       0xAD7C2D2E
-    .word       0xBF8041A2
-    .word       0x40003060
-    .word       0x29303042
-    .word       0x41A3E9A1
-    .word       0x30635555
-    .word       0x41A25555
-    .word       0xF862BF80
-    .word       0xCC062950
-    .word       0x8020F81C
+    .word       0x6FA50D3B
+    .word       0x3470E889
+    .word       0x6A08002A
+    .word       0xE98805B9
+    .word       0x4042ED83
+    .word       0xE9800007
+    .word       0xFFE83060
+    .word       0x002C3870
+    .word       0xE980ED87
+    .word       0x01014082
+    .word       0xFFE73040
     .word       0x002C3850
-    .word       0x8020F81C
-    .word       0x802CF81C
+    .word       0x3260CCFE
+    .word       0xFC5C0001
+    .word       0x30428030
+    .word       0xF85C03DF
+    .word       0x69878030
+    .word       0x214441A2
+    .word       0xDF1C5042
+    .word       0x0033B443
+    .word       0xFFE63040
+    .word       0x12CD3040
+    .word       0x0068385D
+    .word       0x69836902
+    .word       0xC877C856
+    .word       0xC858484D
+    .word       0xC859484E
+    .word       0xDEAD5040
+    .word       0xC805C844
+    .word       0x9D0041A4
+    .word       0x28003084
+    .word       0xEF186EAD
+    .word       0x113E7680
+    .word       0x41A30CE0
+    .word       0xFC43BF80
+    .word       0x2D2E2930
+    .word       0x41A2AD7C
+    .word       0x3060BF80
+    .word       0x30424000
+    .word       0xE9A12930
+    .word       0x555541A3
+    .word       0x55553063
     .word       0xBF8041A2
-    .word       0x2940F802
-    .word       0xAA9941A4
-    .word       0x66553084
-    .word       0x2940F882
-    .word       0x556641A3
-    .word       0x99AA5063
-    .word       0x2940F862
-    .word       0x870050C0
-    .word       0xBF8041A5
-    .word       0x29A0F8C5
-    .word       0x2940F802
-    .word       0x2940F882
-    .word       0x2940F862
-    .word       0x800041A3
-    .word       0x1A900072
-    .word       0xBF8041A2
-    .word       0x2990F862
-    .word       0xE900ED08
-    .word       0x002C3C50
-    .word       0x80000042
-    .word       0xFC9CC85F
-    .word       0x6EBF8024
-    .word       0x0D367680
+    .word       0x2950F862
+    .word       0xF81CCC06
+    .word       0x38508024
+    .word       0xF81C002C
+    .word       0xF81C8024
+    .word       0x41A28030
+    .word       0xF802BF80
+    .word       0x41A42940
+    .word       0x3084AA99
+    .word       0xF8826655
+    .word       0x41A32940
+    .word       0x50635566
+    .word       0xF86299AA
+    .word       0x50C02940
+    .word       0x41A58700
+    .word       0xF8C5BF80
+    .word       0xF80229A0
+    .word       0xF8822940
+    .word       0xF8622940
+    .word       0x41A32940
+    .word       0x00768000
+    .word       0x41A21A90
+    .word       0xF862BF80
+    .word       0xED082990
+    .word       0x3C50E900
+    .word       0x0042002C
+    .word       0xF85D8000
+    .word       0xFC9C00C4
+    .word       0x6EE38028
+    .word       0x0DC07680
     .word       0xFC9CEF04
-    .word       0x41A28024
+    .word       0x41A28028
     .word       0xF6808000
-    .word       0xFCA20E24
-    .word       0xCC800314
-    .word       0x000132E0
-    .word       0x008B40F6
-    .word       0x0018FEF0
-    .word       0x139002F6
+    .word       0xFCA20EEA
+    .word       0xCC7B0314
+    .word       0x00013260
+    .word       0x008840F1
+    .word       0x0018FE70
+    .word       0x13900271
     .word       0x0C80AD08
-    .word       0x03FD7680
-    .word       0xF81C0CD7
-    .word       0x0ED78020
+    .word       0x11487680
+    .word       0xF81C0CD3
+    .word       0x0E338024
     .word       0xFCBC0C80
-    .word       0x76808020
-    .word       0x0CD603FD
-    .word       0x02C26906
-    .word       0xFAD0B1D0
-    .word       0xCC640018
-    .word       0x41A20EE0
+    .word       0x76808024
+    .word       0x0CD11148
+    .word       0x04956906
+    .word       0xCC61E886
+    .word       0x41A20E60
     .word       0x30429D00
-    .word       0x45E21D69
+    .word       0x45E21F99
     .word       0x76800C00
-    .word       0x0C000FFB
-    .word       0x00059417
-    .word       0x0EE00EC2
-    .word       0xFAD0CC31
-    .word       0x69050014
-    .word       0x11D00056
+    .word       0x0C0010F3
+    .word       0x00049414
+    .word       0x0E600E22
+    .word       0xE885CC2E
+    .word       0x05236905
     .word       0x00436984
-    .word       0x8D271390
+    .word       0x8D261390
     .word       0xFFEC3040
     .word       0x002C3850
     .word       0x4C5C6900
     .word       0x0004B042
     .word       0x41A28D18
     .word       0xC85CFFEC
-    .word       0x8024FC9C
+    .word       0x8028FC9C
     .word       0x76806EB9
-    .word       0xEF040D36
-    .word       0x8024FC9C
+    .word       0xEF040DC0
+    .word       0x8028FC9C
     .word       0x800041A2
-    .word       0x0E24F680
+    .word       0x0EEAF680
     .word       0x0314FCA2
     .word       0xFCBC0C80
-    .word       0xF6808020
-    .word       0x50C003FD
-    .word       0xFAD0FFFF
-    .word       0xE8000014
-    .word       0xF81CCC2C
-    .word       0x0EE08020
-    .word       0x8020FC5C
-    .word       0x02F18D26
-    .word       0xB4021290
-    .word       0xFCBCFCAA
-    .word       0xCC248020
-    .word       0x76800C00
-    .word       0x6A840E24
-    .word       0x9D0041A2
-    .word       0x1D693042
-    .word       0x0C0045E2
-    .word       0xFC5CE800
-    .word       0xCC208020
-    .word       0x0001B042
-    .word       0x0C40CC1D
-    .word       0x32E0CC07
-    .word       0xCC040001
-    .word       0x000132E0
-    .word       0x000132E0
-    .word       0x0FFB7680
-    .word       0xCFA60C00
-    .word       0x8CEA0EC2
-    .word       0x8024FC9C
-    .word       0x0C00CFDE
-    .word       0xFC9C8CE6
-    .word       0xCFD98024
-    .word       0x76800C00
-    .word       0x0C000FFB
-    .word       0x0EC2CF9A
-    .word       0x5094231D
-    .word       0x4C5D459F
-    .size       EZBL_Install2Flash, . - EZBL_Install2Flash   # 1872
+    .word       0xF6808024
+    .word       0x50C01148
+    .word       0xE885FFFF
+    .word       0xCC2CE800
+    .word       0x8024F81C
+    .word       0xFC5C0E60
+    .word       0x8D268024
+    .word       0x12900272
+    .word       0xFC25B402
+    .word       0x8024FCBC
+    .word       0x0C00CC25
+    .word       0x0EEA7680
+    .word       0x41A26A84
+    .word       0x30429D00
+    .word       0x45E21F99
+    .word       0xE8000C00
+    .word       0x8024FC5C
+    .word       0xB042CC22
+    .word       0xCC1F0001
+    .word       0xCC070C40
+    .word       0x00013260
+    .word       0x3260CC04
+    .word       0x32600001
+    .word       0x76800001
+    .word       0x0C0010F3
+    .word       0x0E22CFA9
+    .word       0xFFE99412
+    .word       0x8028FC9C
+    .word       0x0C00CFDD
+    .word       0xFFE49412
+    .word       0x8028FC9C
+    .word       0x0C00CFD7
+    .word       0x10F37680
+    .word       0xCF9A0C00
+    .word       0x233D0E22
+    .word       0x459F50D0
+    .word       0x0C004C7D
+    .size       EZBL_Install2Flash, . - EZBL_Install2Flash   # 2148
     .end        EZBL_Install2Flash
 
     .ent        EZBL_BootloaderTask
     .type       EZBL_BootloaderTask, @function
-EZBL_BootloaderTask:            # 0x9D0010C0
+EZBL_BootloaderTask:            # 0x9D0011D4
     .set        micromips
     .insn
     .word       0x45444FF5
     .word       0x9D0041A2
-    .word       0x2068FE02
+    .word       0x2258FE02
     .word       0x001140D0
-    .word       0x8020FC5C
+    .word       0x8024FC5C
     .word       0x800041A2
     .word       0x0200FC82
     .word       0xD0426949
     .word       0x8D070060
-    .word       0x8020FC5C
-    .word       0x098B7680
+    .word       0x8024FC5C
+    .word       0x0A157680
     .word       0xFC5C0CB0
-    .word       0x8D088020
+    .word       0x8D088024
     .word       0x800041A4
     .word       0x04B8F680
     .word       0x02083084
@@ -1362,13 +1366,13 @@ EZBL_BootloaderTask:            # 0x9D0010C0
     .word       0xFC428000
     .word       0x69290200
     .word       0x000C40E2
-    .word       0x0FFB7680
+    .word       0x10F37680
     .word       0x41A30C00
     .word       0xF8438000
     .word       0x41A2021C
     .word       0xFC428000
     .word       0xE8290200
-    .word       0x0FFB7680
+    .word       0x10F37680
     .word       0x41A30C00
     .word       0x30638000
     .word       0x6A350208
@@ -1380,7 +1384,7 @@ EZBL_BootloaderTask:            # 0x9D0010C0
     .word       0x41A29D00
     .word       0xFC828000
     .word       0x76800200
-    .word       0x0CB0098B
+    .word       0x0CB00A15
     .word       0x9D0041A2
     .word       0x28003042
     .word       0x2D2F2928
@@ -1424,7 +1428,7 @@ EZBL_BootloaderTask:            # 0x9D0010C0
 
     .ent        EZBL_ErasePage
     .type       EZBL_ErasePage, @function
-EZBL_ErasePage:                 # 0x9D001208
+EZBL_ErasePage:                 # 0x9D00131C
     .set        micromips
     .insn
     .word       0xF80833BD
@@ -1435,9 +1439,9 @@ EZBL_ErasePage:                 # 0x9D001208
     .word       0x92500244
     .word       0xA00041B6
     .word       0xB29002D2
-    .word       0x802CFC5C
+    .word       0x8030FC5C
     .word       0x12343042
-    .word       0x802CF85C
+    .word       0x8030F85C
     .word       0x305D6C8D
     .word       0xF85D0818
     .word       0x0E110818
@@ -1454,7 +1458,7 @@ EZBL_ErasePage:                 # 0x9D001208
     .word       0xE9006920
     .word       0x0CB70C9E
     .word       0x3048070E
-    .word       0xF8FD1EF7
+    .word       0xF8FD20E7
     .word       0xF91D081C
     .word       0x45C20820
     .word       0x0824F93D
@@ -1470,12 +1474,12 @@ EZBL_ErasePage:                 # 0x9D001208
     .word       0x12343040
     .word       0x002AB455
     .word       0xFC5C0C00
-    .word       0x3042802C
+    .word       0x30428030
     .word       0xF85CEDCC
-    .word       0x869A802C
-    .word       0x0C6B7680
+    .word       0x869A8030
+    .word       0x0CF57680
     .word       0x0E020C00
-    .word       0x802CFCDC
+    .word       0x8030FCDC
     .word       0x0C92C804
     .word       0x41A2EE84
     .word       0x3042BFC0
@@ -1486,11 +1490,11 @@ EZBL_ErasePage:                 # 0x9D001208
     .word       0x50400800
     .word       0xC844DEAD
     .word       0x869AC805
-    .word       0x104C7680
+    .word       0x113E7680
     .word       0xF81C0CE0
-    .word       0xCC05802C
+    .word       0xCC058030
     .word       0x08003054
-    .word       0x802CF81C
+    .word       0x8030F81C
     .word       0x4C2DED7F
     .word       0x57D0233D
     .word       0x33BD459F
@@ -1500,7 +1504,7 @@ EZBL_ErasePage:                 # 0x9D001208
 
     .ent        EZBL_FIFOSetBaud
     .type       EZBL_FIFOSetBaud, @function
-EZBL_FIFOSetBaud:               # 0x9D001316
+EZBL_FIFOSetBaud:               # 0x9D00142A
     .set        micromips
     .insn
     .short      0x4FF1
@@ -1521,7 +1525,7 @@ EZBL_FIFOSetBaud:               # 0x9D001316
     .word       0xBF8041B0
     .word       0x19003210
     .word       0x800041A2
-    .word       0x0FC2F680
+    .word       0x10BAF680
     .word       0x0310FC82
     .word       0x0040FCB0
     .word       0x00224082
@@ -1564,7 +1568,7 @@ EZBL_FIFOSetBaud:               # 0x9D001316
 
     .ent        UART2_RXTXInterrupt
     .type       UART2_RXTXInterrupt, @function
-UART2_RXTXInterrupt:            # 0x9D0013F4
+UART2_RXTXInterrupt:            # 0x9D001508
     .set        micromips
     .insn
     .word       0xE17C03BD
@@ -1599,7 +1603,7 @@ UART2_RXTXInterrupt:            # 0x9D0013F4
     .word       0xFC428000
     .word       0xB4500300
     .word       0x0C000004
-    .word       0x0B287680
+    .word       0x0BB27680
     .word       0x48590C00
     .word       0x3D7C0002
     .word       0x00034878
@@ -1627,7 +1631,7 @@ UART2_RXTXInterrupt:            # 0x9D0013F4
 
     .ent        UART2_TX_FIFO_OnWrite
     .type       UART2_TX_FIFO_OnWrite, @function
-UART2_TX_FIFO_OnWrite:          # 0x9D0014D0
+UART2_TX_FIFO_OnWrite:          # 0x9D0015E4
     .set        micromips
     .insn
     .word       0x231D4FE5
@@ -1638,33 +1642,33 @@ UART2_TX_FIFO_OnWrite:          # 0x9D0014D0
     .word       0x69241900
     .word       0x0200D042
     .word       0x000640A2
-    .word       0x0B137680
+    .word       0x0B9D7680
     .word       0x76800C87
-    .word       0x0C910B22
+    .word       0x0C910BAC
     .word       0x003C9650
     .word       0x800041A2
-    .word       0x0FFBF680
+    .word       0x10F3F680
     .word       0xBF8041B4
     .word       0xFEF10EC2
     .word       0xE8150014
     .word       0x800041B5
     .word       0x02130C91
     .word       0xF6802950
-    .word       0x02120D36
+    .word       0x02120DC0
     .word       0x042031D0
     .word       0x19003054
     .word       0xD06369A4
     .word       0x40A30200
     .word       0x7680000E
-    .word       0x0C910B22
-    .word       0x0B137680
+    .word       0x0C910BAC
+    .word       0x0B9D7680
     .word       0x76800C91
-    .word       0x0C910B0E
+    .word       0x0C910B98
     .word       0x000340E2
-    .word       0x0B287680
+    .word       0x0BB27680
     .word       0x96500C00
     .word       0x0C00000D
-    .word       0x0FFB7680
+    .word       0x10F37680
     .word       0x02C20C00
     .word       0xFC7511D0
     .word       0x25B50318
@@ -1684,7 +1688,7 @@ UART2_TX_FIFO_OnWrite:          # 0x9D0014D0
 
     .ent        EZBL_RdIntFlag
     .type       EZBL_RdIntFlag, @function
-EZBL_RdIntFlag:                 # 0x9D001594
+EZBL_RdIntFlag:                 # 0x9D0016A8
     .set        micromips
     .insn
     .word       0xED80CC07
@@ -1693,7 +1697,7 @@ EZBL_RdIntFlag:                 # 0x9D001594
 
     .ent        EZBL_InvIntFlag
     .type       EZBL_InvIntFlag, @function
-EZBL_InvIntFlag:                # 0x9D001598
+EZBL_InvIntFlag:                # 0x9D0016AC
     .set        micromips
     .insn
     .word       0xED8CCC05
@@ -1702,7 +1706,7 @@ EZBL_InvIntFlag:                # 0x9D001598
 
     .ent        EZBL_ClrIntFlag
     .type       EZBL_ClrIntFlag, @function
-EZBL_ClrIntFlag:                # 0x9D00159C
+EZBL_ClrIntFlag:                # 0x9D0016B0
     .set        micromips
     .insn
     .short      0xEE80
@@ -1711,7 +1715,7 @@ EZBL_ClrIntFlag:                # 0x9D00159C
 
     .ent        EZBL_WrIntFlag
     .type       EZBL_WrIntFlag, @function
-EZBL_WrIntFlag:                 # 0x9D00159E
+EZBL_WrIntFlag:                 # 0x9D0016B2
     .set        micromips
     .insn
     .short      0x8E82
@@ -1721,7 +1725,7 @@ EZBL_WrIntFlag:                 # 0x9D00159E
 
     .ent        EZBL_SetIntFlag
     .type       EZBL_SetIntFlag, @function
-EZBL_SetIntFlag:                # 0x9D0015A2
+EZBL_SetIntFlag:                # 0x9D0016B6
     .set        micromips
     .insn
     .short      0xED88
@@ -1740,7 +1744,7 @@ EZBL_SetIntFlag:                # 0x9D0015A2
 
     .ent        EZBL_RdIntEn
     .type       EZBL_RdIntEn, @function
-EZBL_RdIntEn:                   # 0x9D0015CA
+EZBL_RdIntEn:                   # 0x9D0016DE
     .set        micromips
     .insn
     .short      0xCC07
@@ -1750,7 +1754,7 @@ EZBL_RdIntEn:                   # 0x9D0015CA
 
     .ent        EZBL_InvIntEn
     .type       EZBL_InvIntEn, @function
-EZBL_InvIntEn:                  # 0x9D0015CE
+EZBL_InvIntEn:                  # 0x9D0016E2
     .set        micromips
     .insn
     .short      0xCC05
@@ -1760,7 +1764,7 @@ EZBL_InvIntEn:                  # 0x9D0015CE
 
     .ent        EZBL_ClrIntEn
     .type       EZBL_ClrIntEn, @function
-EZBL_ClrIntEn:                  # 0x9D0015D2
+EZBL_ClrIntEn:                  # 0x9D0016E6
     .set        micromips
     .insn
     .short      0xEE80
@@ -1769,7 +1773,7 @@ EZBL_ClrIntEn:                  # 0x9D0015D2
 
     .ent        EZBL_WrIntEn
     .type       EZBL_WrIntEn, @function
-EZBL_WrIntEn:                   # 0x9D0015D4
+EZBL_WrIntEn:                   # 0x9D0016E8
     .set        micromips
     .insn
     .word       0xED848E82
@@ -1778,7 +1782,7 @@ EZBL_WrIntEn:                   # 0x9D0015D4
 
     .ent        EZBL_SetIntEn
     .type       EZBL_SetIntEn, @function
-EZBL_SetIntEn:                  # 0x9D0015D8
+EZBL_SetIntEn:                  # 0x9D0016EC
     .set        micromips
     .insn
     .word       0x41A2ED88
@@ -1789,7 +1793,7 @@ EZBL_SetIntEn:                  # 0x9D0015D8
 
     .ent        EZBL_RdIntPri
     .type       EZBL_RdIntPri, @function
-EZBL_RdIntPri:                  # 0x9D0015E4
+EZBL_RdIntPri:                  # 0x9D0016F8
     .set        micromips
     .insn
     .word       0xED81CC02
@@ -1798,7 +1802,7 @@ EZBL_RdIntPri:                  # 0x9D0015E4
 
     .ent        EZBL_WrIntPri
     .type       EZBL_WrIntPri, @function
-EZBL_WrIntPri:                  # 0x9D0015E8
+EZBL_WrIntPri:                  # 0x9D0016FC
     .set        micromips
     .insn
     .word       0x41A6ED80
@@ -1815,7 +1819,7 @@ EZBL_WrIntPri:                  # 0x9D0015E8
 
     .ent        EZBL_FIFOGetIntPri
     .type       EZBL_FIFOGetIntPri, @function
-EZBL_FIFOGetIntPri:             # 0x9D00160C
+EZBL_FIFOGetIntPri:             # 0x9D001720
     .set        micromips
     .insn
     .word       0xED81CC02
@@ -1824,18 +1828,18 @@ EZBL_FIFOGetIntPri:             # 0x9D00160C
 
     .ent        EZBL_FIFOSetIntPri
     .type       EZBL_FIFOSetIntPri, @function
-EZBL_FIFOSetIntPri:             # 0x9D001610
+EZBL_FIFOSetIntPri:             # 0x9D001724
     .set        micromips
     .insn
     .word       0x41A7ED80
     .word       0xCC0C9D00
-    .word       0x15EB30E7
+    .word       0x16FF30E7
     .size       EZBL_FIFOSetIntPri, . - EZBL_FIFOSetIntPri   # 12
     .end        EZBL_FIFOSetIntPri
 
     .ent        EZBL_FIFOGetInt
     .type       EZBL_FIFOGetInt, @function
-EZBL_FIFOGetInt:                # 0x9D00161C
+EZBL_FIFOGetInt:                # 0x9D001730
     .set        micromips
     .insn
     .word       0xED80CC05
@@ -1844,7 +1848,7 @@ EZBL_FIFOGetInt:                # 0x9D00161C
 
     .ent        EZBL_FIFOIntClear
     .type       EZBL_FIFOIntClear, @function
-EZBL_FIFOIntClear:              # 0x9D001620
+EZBL_FIFOIntClear:              # 0x9D001734
     .set        micromips
     .insn
     .short      0xEE80
@@ -1853,7 +1857,7 @@ EZBL_FIFOIntClear:              # 0x9D001620
 
     .ent        EZBL_FIFOIntFlagSet
     .type       EZBL_FIFOIntFlagSet, @function
-EZBL_FIFOIntFlagSet:            # 0x9D001622
+EZBL_FIFOIntFlagSet:            # 0x9D001736
     .set        micromips
     .insn
     .short      0x8E82
@@ -1863,12 +1867,12 @@ EZBL_FIFOIntFlagSet:            # 0x9D001622
 
     .ent        EZBL_FIFOIntRaise
     .type       EZBL_FIFOIntRaise, @function
-EZBL_FIFOIntRaise:              # 0x9D001626
+EZBL_FIFOIntRaise:              # 0x9D00173A
     .set        micromips
     .insn
     .short      0xED88
     .word       0x9D0041A7
-    .word       0x15A530E7
+    .word       0x16B930E7
     .word       0xED008E4A
     .word       0x14844587
     .short      0x0020
@@ -1877,7 +1881,7 @@ EZBL_FIFOIntRaise:              # 0x9D001626
 
     .ent        EZBL_FIFOGetIntEn
     .type       EZBL_FIFOGetIntEn, @function
-EZBL_FIFOGetIntEn:              # 0x9D00163A
+EZBL_FIFOGetIntEn:              # 0x9D00174E
     .set        micromips
     .insn
     .short      0xCC05
@@ -1887,7 +1891,7 @@ EZBL_FIFOGetIntEn:              # 0x9D00163A
 
     .ent        EZBL_FIFOIntDisable
     .type       EZBL_FIFOIntDisable, @function
-EZBL_FIFOIntDisable:            # 0x9D00163E
+EZBL_FIFOIntDisable:            # 0x9D001752
     .set        micromips
     .insn
     .short      0xEE80
@@ -1896,7 +1900,7 @@ EZBL_FIFOIntDisable:            # 0x9D00163E
 
     .ent        EZBL_FIFOIntEnableSet
     .type       EZBL_FIFOIntEnableSet, @function
-EZBL_FIFOIntEnableSet:          # 0x9D001640
+EZBL_FIFOIntEnableSet:          # 0x9D001754
     .set        micromips
     .insn
     .word       0xED848E82
@@ -1905,23 +1909,23 @@ EZBL_FIFOIntEnableSet:          # 0x9D001640
 
     .ent        EZBL_FIFOIntEnable
     .type       EZBL_FIFOIntEnable, @function
-EZBL_FIFOIntEnable:             # 0x9D001644
+EZBL_FIFOIntEnable:             # 0x9D001758
     .set        micromips
     .insn
     .word       0x41A7ED88
     .word       0xCFF29D00
-    .word       0x15DB30E7
+    .word       0x16EF30E7
     .size       EZBL_FIFOIntEnable, . - EZBL_FIFOIntEnable   # 12
     .end        EZBL_FIFOIntEnable
 
     .ent        UART2_TXInterruptFunc
     .type       UART2_TXInterruptFunc, @function
-UART2_TXInterruptFunc:          # 0x9D001650
+UART2_TXInterruptFunc:          # 0x9D001764
     .set        micromips
     .insn
     .word       0xCBE54FF5
     .word       0x800041A4
-    .word       0x0B10F680
+    .word       0x0B9AF680
     .word       0x02E03084
     .word       0xBF8041A2
     .word       0x19003042
@@ -1936,7 +1940,7 @@ UART2_TXInterruptFunc:          # 0x9D001650
     .word       0xAD9202E0
     .word       0x02E03062
     .word       0x800041A4
-    .word       0x0B1FF680
+    .word       0x0BA9F680
     .word       0x02E03084
     .word       0x4BE5CC33
     .word       0x800041A2
@@ -1980,7 +1984,7 @@ UART2_TXInterruptFunc:          # 0x9D001650
     .word       0x139002B1
     .word       0x0C44AD0F
     .word       0x0CB28E07
-    .word       0x10267680
+    .word       0x111E7680
     .word       0xCC050CD5
     .word       0xA9D002B1
     .word       0x02B10C40
@@ -1988,7 +1992,7 @@ UART2_TXInterruptFunc:          # 0x9D001650
     .word       0x0010FE50
     .word       0x40E20EB1
     .word       0x86D40004
-    .word       0x10267680
+    .word       0x111E7680
     .word       0xB4160CD5
     .word       0x02B2000D
     .word       0xFA509150
@@ -2011,7 +2015,7 @@ UART2_TXInterruptFunc:          # 0x9D001650
 
     .ent        UART2_TX_FIFO_Flush
     .type       UART2_TX_FIFO_Flush, @function
-UART2_TX_FIFO_Flush:            # 0x9D0017AC
+UART2_TX_FIFO_Flush:            # 0x9D0018C0
     .set        micromips
     .insn
     .word       0x45754FED
@@ -2021,17 +2025,17 @@ UART2_TX_FIFO_Flush:            # 0x9D0017AC
     .word       0xD0426924
     .word       0x8D0A0100
     .word       0x19003051
-    .word       0x0B227680
+    .word       0x0BAC7680
     .word       0x76800C90
-    .word       0x0C900B13
+    .word       0x0C900B9D
     .word       0x19003051
     .word       0xD0426924
     .word       0x40E20100
     .word       0x69000006
     .word       0x000340E2
-    .word       0x0B287680
+    .word       0x0BB27680
     .word       0x76800C00
-    .word       0x0C000FFB
+    .word       0x0C0010F3
     .word       0x0000FC72
     .word       0xFC930535
     .word       0x00440000
@@ -2040,7 +2044,7 @@ UART2_TX_FIFO_Flush:            # 0x9D0017AC
     .word       0x3051AD59
     .word       0xCC0E1900
     .word       0xBF8041B1
-    .word       0x0FFB7680
+    .word       0x10F37680
     .word       0xFC720C00
     .word       0x05350000
     .word       0x0000FC93
@@ -2058,7 +2062,7 @@ UART2_TX_FIFO_Flush:            # 0x9D0017AC
 
     .ent        EZBL_EraseAppSpace
     .type       EZBL_EraseAppSpace, @function
-EZBL_EraseAppSpace:             # 0x9D001848
+EZBL_EraseAppSpace:             # 0x9D00195C
     .set        micromips
     .insn
     .word       0x45444FF5
@@ -2079,22 +2083,22 @@ EZBL_EraseAppSpace:             # 0x9D001848
     .word       0x6F240CC2
     .word       0x439000E6
     .word       0x000440A8
-    .word       0x802CF81C
+    .word       0x8030F81C
     .word       0x0C40CC1D
     .word       0x00B06822
     .word       0x05D72B90
     .word       0xCFDE6DB0
     .word       0xEAC00C46
-    .word       0x0EF47680
+    .word       0x0FEC7680
     .word       0x40A20C90
     .word       0xFC7C000C
-    .word       0x41A2802C
+    .word       0x41A28030
     .word       0x3042FFFF
     .word       0x052607BE
-    .word       0x802CF85C
-    .word       0x09047680
+    .word       0x8030F85C
+    .word       0x098E7680
     .word       0xF81C0C90
-    .word       0xED01802C
+    .word       0xED018030
     .word       0x459F4504
     .short      0x4C0D
     .size       EZBL_EraseAppSpace, . - EZBL_EraseAppSpace   # 142
@@ -2102,7 +2106,7 @@ EZBL_EraseAppSpace:             # 0x9D001848
 
     .ent        EZBL_RestoreAppErasableInRAMPage
     .type       EZBL_RestoreAppErasableInRAMPage, @function
-EZBL_RestoreAppErasableInRAMPage: # 0x9D0018D6
+EZBL_RestoreAppErasableInRAMPage: # 0x9D0019EA
     .set        micromips
     .insn
     .short      0x4FE5
@@ -2132,7 +2136,7 @@ EZBL_RestoreAppErasableInRAMPage: # 0x9D0018D6
     .word       0x99D0005E
     .word       0x07FFD084
     .word       0xF680846A
-    .word       0x00961026
+    .word       0x0096111E
     .word       0x02702150
     .word       0x30408150
     .word       0x0054FFFC
@@ -2146,7 +2150,7 @@ EZBL_RestoreAppErasableInRAMPage: # 0x9D0018D6
 
     .ent        EZBL_VerifyROM
     .type       EZBL_VerifyROM, @function
-EZBL_VerifyROM:                 # 0x9D001962
+EZBL_VerifyROM:                 # 0x9D001A76
     .set        micromips
     .insn
     .short      0x4FED
@@ -2154,7 +2158,7 @@ EZBL_VerifyROM:                 # 0x9D001962
     .word       0x0E470E66
     .word       0x800041B0
     .word       0x869844C4
-    .word       0x100B7680
+    .word       0x11037680
     .word       0x8D260C00
     .word       0x99500270
     .word       0x9D0041A6
@@ -2188,28 +2192,28 @@ EZBL_VerifyROM:                 # 0x9D001962
 
     .ent        UART2_RX_FIFO_OnRead
     .type       UART2_RX_FIFO_OnRead, @function
-UART2_RX_FIFO_OnRead:           # 0x9D0019E8
+UART2_RX_FIFO_OnRead:           # 0x9D001AFC
     .set        micromips
     .insn
     .word       0x22FD4FE9
     .word       0x0E04D010
     .word       0x002C94C4
     .word       0x0E650E46
-    .word       0x0FFB7680
+    .word       0x10F37680
     .word       0x0EA20E27
     .word       0x0018FED1
     .word       0x41B4E816
     .word       0x02138000
     .word       0x0CB12150
-    .word       0x03FDF680
+    .word       0x1148F680
     .word       0x31D00212
     .word       0x76800420
-    .word       0x0C910B0E
+    .word       0x0C910B98
     .word       0x000340E2
     .word       0x02307680
     .word       0x96120C00
     .word       0x0C00000D
-    .word       0x0FFB7680
+    .word       0x10F37680
     .word       0x02A20C00
     .word       0xFC7411D0
     .word       0x00620318
@@ -2229,7 +2233,7 @@ UART2_RX_FIFO_OnRead:           # 0x9D0019E8
 
     .ent        EZBL_FIFOWrite
     .type       EZBL_FIFOWrite, @function
-EZBL_FIFOWrite:                 # 0x9D001A6C
+EZBL_FIFOWrite:                 # 0x9D001B80
     .set        micromips
     .insn
     .word       0x22BD4FED
@@ -2245,12 +2249,12 @@ EZBL_FIFOWrite:                 # 0x9D001A6C
     .word       0x027199D0
     .word       0x40A21390
     .word       0x7680000A
-    .word       0x0CD31026
+    .word       0x0CD3111E
     .word       0x29500274
     .word       0x31D00271
     .word       0xCC026904
     .word       0x841EE901
-    .word       0x10267680
+    .word       0x111E7680
     .word       0xE9016A01
     .word       0x477C0002
     .word       0x18000000
@@ -2270,7 +2274,7 @@ EZBL_FIFOWrite:                 # 0x9D001A6C
 
     .ent        _general_exception_context
     .type       _general_exception_context, @function
-_general_exception_context:     # 0x9D001AF0
+_general_exception_context:     # 0x9D001C04
     .set        micromips
     .insn
     .word       0xC8214FD5
@@ -2286,7 +2290,7 @@ _general_exception_context:     # 0x9D001AF0
     .word       0x4608C913
     .word       0x41BAC914
     .word       0x335A9D00
-    .word       0x0C001E91
+    .word       0x0C002081
     .word       0x00FC008D
     .word       0x00FC00AC
     .word       0x000045DA
@@ -2305,9 +2309,103 @@ _general_exception_context:     # 0x9D001AF0
     .word       0x4C2D4BF2
     .word       0x18000000
     .word       0xF37C0000
+    .size       _general_exception_context, . - _general_exception_context   # 128
+    .end        _general_exception_context
+
+    .ent        EZBL_MapWriteEx
+    .type       EZBL_MapWriteEx, @function
+EZBL_MapWriteEx:                # 0x9D001C84
+    .set        micromips
+    .insn
+    .word       0xED80CC0F
+    .size       EZBL_MapWriteEx, . - EZBL_MapWriteEx   # 4
+    .end        EZBL_MapWriteEx
+
+    .ent        EZBL_MapWrite
+    .type       EZBL_MapWrite, @function
+EZBL_MapWrite:                  # 0x9D001C88
+    .set        micromips
+    .insn
+    .word       0xED80CC0C
+    .size       EZBL_MapWrite, . - EZBL_MapWrite   # 4
+    .end        EZBL_MapWrite
+
+    .ent        EZBL_MapClrEx
+    .type       EZBL_MapClrEx, @function
+EZBL_MapClrEx:                  # 0x9D001C8C
+    .set        micromips
+    .insn
+    .word       0xED84CC0B
+    .size       EZBL_MapClrEx, . - EZBL_MapClrEx   # 4
+    .end        EZBL_MapClrEx
+
+    .ent        EZBL_MapClr
+    .type       EZBL_MapClr, @function
+EZBL_MapClr:                    # 0x9D001C90
+    .set        micromips
+    .insn
+    .word       0xED84CC08
+    .size       EZBL_MapClr, . - EZBL_MapClr   # 4
+    .end        EZBL_MapClr
+
+    .ent        EZBL_MapSetEx
+    .type       EZBL_MapSetEx, @function
+EZBL_MapSetEx:                  # 0x9D001C94
+    .set        micromips
+    .insn
+    .word       0xED88CC07
+    .size       EZBL_MapSetEx, . - EZBL_MapSetEx   # 4
+    .end        EZBL_MapSetEx
+
+    .ent        EZBL_MapSet
+    .type       EZBL_MapSet, @function
+EZBL_MapSet:                    # 0x9D001C98
+    .set        micromips
+    .insn
+    .word       0xED88CC04
+    .size       EZBL_MapSet, . - EZBL_MapSet   # 4
+    .end        EZBL_MapSet
+
+    .ent        EZBL_MapInvEx
+    .type       EZBL_MapInvEx, @function
+EZBL_MapInvEx:                  # 0x9D001C9C
+    .set        micromips
+    .insn
+    .word       0xED8CCC03
+    .size       EZBL_MapInvEx, . - EZBL_MapInvEx   # 4
+    .end        EZBL_MapInvEx
+
+    .ent        EZBL_MapInv
+    .type       EZBL_MapInv, @function
+EZBL_MapInv:                    # 0x9D001CA0
+    .set        micromips
+    .insn
+    .word       0xEF00ED8C
+    .word       0x0D608EA2
+    .word       0xFD050DE5
+    .word       0x0DA00000
+    .word       0x3140CC18
+    .word       0x4DA20001
+    .word       0x391801AF
+    .word       0x246C0047
+    .word       0xAC4C00E0
+    .word       0x6AF007EE
+    .word       0x10100142
+    .word       0x8E8444AA
+    .word       0x72500184
+    .word       0x5950018B
+    .word       0x07BE8D8A
+    .word       0x105801C0
+    .word       0xB50DE970
+    .word       0x014DFFE8
+    .word       0x459F6010
+    .word       0xEE840C4B
+    .word       0x285801C0
+    .word       0xCFF507DE
+    .word       0xFFFFE971
     .word       0x41A80C7F
     .word       0x31089D00
-    .word       0xFD281DA8
+    .word       0xFD281E80
     .word       0x94090000
     .word       0x3108002D
     .word       0xFD480004
@@ -2334,12 +2432,12 @@ _general_exception_context:     # 0x9D001AF0
     .word       0x0C00FFD0
     .word       0x459F0FE3
     .word       0x0C000C00
-    .size       _general_exception_context, . - _general_exception_context   # 244
-    .end        _general_exception_context
+    .size       EZBL_MapInv, . - EZBL_MapInv   # 208
+    .end        EZBL_MapInv
 
     .ent        EZBL_ForwardIRQ
     .type       EZBL_ForwardIRQ, @function
-EZBL_ForwardIRQ:                # 0x9D001BE4
+EZBL_ForwardIRQ:                # 0x9D001D70
     .set        micromips
     .insn
     .word       0x800041A6
@@ -2372,13 +2470,13 @@ EZBL_ForwardIRQ:                # 0x9D001BE4
 
     .ent        EZBL_FIFOFlush
     .type       EZBL_FIFOFlush, @function
-EZBL_FIFOFlush:                 # 0x9D001C48
+EZBL_FIFOFlush:                 # 0x9D001DD4
     .set        micromips
     .insn
     .word       0x45464FF1
     .word       0x8E240E04
     .word       0x7680C8A9
-    .word       0x0C000FFB
+    .word       0x0C0010F3
     .word       0x6907C844
     .word       0x0C90AD06
     .word       0x40A26900
@@ -2386,9 +2484,9 @@ EZBL_FIFOFlush:                 # 0x9D001C48
     .word       0x6E890C00
     .word       0x6F1345E2
     .word       0x0C00CC14
-    .word       0x0FEAF680
+    .word       0x10E2F680
     .word       0x0026349D
-    .word       0x0FFB7680
+    .word       0x10F37680
     .word       0x48640C00
     .word       0x48890535
     .word       0x1B900044
@@ -2397,16 +2495,57 @@ EZBL_FIFOFlush:                 # 0x9D001C48
     .word       0x0001B042
     .word       0x4506ED01
     .word       0x4C11459F
-    .size       EZBL_FIFOFlush, . - EZBL_FIFOFlush   # 88
+    .word       0x43414D48
+    .word       0x52524520
+    .word       0x0C000000
+    .word       0x662B7461
+    .word       0x61657273
+    .word       0x3A433D64
+    .word       0x6573555C
+    .word       0x54465C72
+    .word       0x6C625C50
+    .word       0x6E6F7A61
+    .word       0x7370672D
+    .word       0x6F72702E
+    .word       0x74637564
+    .word       0x2E6E6F69
+    .word       0x2C326C62
+    .word       0x00002C31
+    .word       0x00000000
+    .word       0x00000000
+    .word       0x00000000
+    .word       0x00000000
+    .word       0x0C000000
+    .word       0x8000032C
+    .word       0x00000004
+    .word       0x00000000
+    .word       0x80000328
+    .word       0x00000004
+    .word       0x00000001
+    .word       0x00000040
+    .word       0x80000330
+    .word       0x00000001
+    .word       0x00000000
+    .word       0x80000334
+    .word       0x00000004
+    .word       0x00000000
+    .word       0x80000338
+    .word       0x00000004
+    .word       0x00000000
+    .word       0x00000000
+    .word       0x22222222
+    .word       0x22222222
+    .word       0x22222222
+    .size       EZBL_FIFOFlush, . - EZBL_FIFOFlush   # 252
     .end        EZBL_FIFOFlush
 
     .ent        main
     .type       main, @function
-main:                           # 0x9D001CA0
+main:                           # 0x9D001ED0
     .set        micromips
     .insn
     .word       0x45554FF1
-    .word       0x0E947680
+    .word       0x0FAC7680
     .word       0xF6800C80
     .word       0x41B000C6
     .word       0xF8108000
@@ -2414,20 +2553,20 @@ main:                           # 0x9D001CA0
     .word       0x41A20208
     .word       0xFC428000
     .word       0x76800318
-    .word       0xE9040FFB
+    .word       0xE90410F3
     .word       0x41B1E905
     .word       0x3231BF80
     .word       0x32003990
     .word       0x3A115743
     .word       0x76800006
-    .word       0x0C000860
+    .word       0x0C0008EA
     .word       0x0C00CFFA
     .size       main, . - main   # 68
     .end        main
 
     .ent        EZBL_RAMCopy
     .type       EZBL_RAMCopy, @function
-EZBL_RAMCopy:                   # 0x9D001CE4
+EZBL_RAMCopy:                   # 0x9D001F14
     .set        micromips
     .insn
     .word       0x1A900085
@@ -2452,7 +2591,7 @@ EZBL_RAMCopy:                   # 0x9D001CE4
 
     .ent        EZBL_ForwardAllIRQ
     .type       EZBL_ForwardAllIRQ, @function
-EZBL_ForwardAllIRQ:             # 0x9D001D28
+EZBL_ForwardAllIRQ:             # 0x9D001F58
     .set        micromips
     .insn
     .word       0xCBE54FF5
@@ -2466,7 +2605,7 @@ EZBL_ForwardAllIRQ:             # 0x9D001D28
     .word       0x94081800
     .word       0x3162000A
     .word       0x0C890004
-    .word       0x0DF27680
+    .word       0x0EB87680
     .word       0x014B6AA0
     .word       0xCFF51150
     .word       0x4BE54D1E
@@ -2476,7 +2615,7 @@ EZBL_ForwardAllIRQ:             # 0x9D001D28
 
     .ent        __pic32_software_reset
     .type       __pic32_software_reset, @function
-__pic32_software_reset:         # 0x9D001D68
+__pic32_software_reset:         # 0x9D001F98
     .set        micromips
     .insn
     .word       0x477C0000
@@ -2494,29 +2633,13 @@ __pic32_software_reset:         # 0x9D001D68
     .word       0x41A226F8
     .word       0xFC42BF80
     .word       0xD68026F0
-    .word       0x0C000EB8
-    .word       0x80000328
-    .word       0x00000004
-    .word       0x00000000
-    .word       0x8000032C
-    .word       0x00000001
-    .word       0x00000000
-    .word       0x80000330
-    .word       0x00000004
-    .word       0x00000000
-    .word       0x80000334
-    .word       0x00000004
-    .word       0x00000000
-    .word       0x00000000
-    .word       0x22222222
-    .word       0x22222222
-    .word       0x22222222
-    .size       __pic32_software_reset, . - __pic32_software_reset   # 128
+    .word       0x0C000FD0
+    .size       __pic32_software_reset, . - __pic32_software_reset   # 64
     .end        __pic32_software_reset
 
     .ent        EZBL_IsPageErased
     .type       EZBL_IsPageErased, @function
-EZBL_IsPageErased:              # 0x9D001DE8
+EZBL_IsPageErased:              # 0x9D001FD8
     .set        micromips
     .insn
     .word       0x5FFF41A2
@@ -2540,7 +2663,7 @@ EZBL_IsPageErased:              # 0x9D001DE8
 
     .ent        EZBL_PreInstall
     .type       EZBL_PreInstall, @function
-EZBL_PreInstall:                # 0x9D001E28
+EZBL_PreInstall:                # 0x9D002018
     .set        micromips
     .insn
     .word       0x08FC006F
@@ -2549,7 +2672,7 @@ EZBL_PreInstall:                # 0x9D001E28
     .word       0x000B9443
     .word       0x4FF50C00
     .word       0xFC5CCBE5
-    .word       0x40E28018
+    .word       0x40E2801C
     .word       0x45E20006
     .word       0xCC050C00
     .word       0x459F4BE5
@@ -2561,7 +2684,7 @@ EZBL_PreInstall:                # 0x9D001E28
 
     .ent        _bootstrap_exception_handler
     .type       _bootstrap_exception_handler, @function
-_bootstrap_exception_handler:   # 0x9D001E5C
+_bootstrap_exception_handler:   # 0x9D00204C
     .set        micromips
     .insn
     .word       0x000041A2
@@ -2572,7 +2695,7 @@ _bootstrap_exception_handler:   # 0x9D001E5C
     .word       0x9D0041A2
     .word       0x41A246C0
     .word       0x30429D00
-    .word       0x40E21D69
+    .word       0x40E21F99
     .word       0x4FF50005
     .word       0x45C2CBE5
     .word       0x00000000
@@ -2582,7 +2705,7 @@ _bootstrap_exception_handler:   # 0x9D001E5C
 
     .ent        _general_exception_handler
     .type       _general_exception_handler, @function
-_general_exception_handler:     # 0x9D001E90
+_general_exception_handler:     # 0x9D002080
     .set        micromips
     .insn
     .word       0x000041A2
@@ -2593,7 +2716,7 @@ _general_exception_handler:     # 0x9D001E90
     .word       0x9D0041A2
     .word       0x41A246C0
     .word       0x30429D00
-    .word       0x40E21D69
+    .word       0x40E21F99
     .word       0x4FF50005
     .word       0x45C2CBE5
     .word       0x00000000
@@ -2603,7 +2726,7 @@ _general_exception_handler:     # 0x9D001E90
 
     .ent        EZBL_CRC32
     .type       EZBL_CRC32, @function
-EZBL_CRC32:                     # 0x9D001EC4
+EZBL_CRC32:                     # 0x9D0020B4
     .set        micromips
     .insn
     .word       0x076A4414
@@ -2624,7 +2747,7 @@ EZBL_CRC32:                     # 0x9D001EC4
 
     .ent        EZBL_AddrInTable
     .type       EZBL_AddrInTable, @function
-EZBL_AddrInTable:               # 0x9D001EF6
+EZBL_AddrInTable:               # 0x9D0020E6
     .set        micromips
     .insn
     .short      0xAE04
@@ -2645,7 +2768,7 @@ EZBL_AddrInTable:               # 0x9D001EF6
 
     .ent        _DefaultInterrupt
     .type       _DefaultInterrupt, @function
-_DefaultInterrupt:              # 0x9D001F28
+_DefaultInterrupt:              # 0x9D002118
     .set        micromips
     .insn
     .word       0x000041A2
@@ -2656,7 +2779,7 @@ _DefaultInterrupt:              # 0x9D001F28
     .word       0x46C00002
     .word       0x41A245BF
     .word       0x30429D00
-    .word       0x40E21D69
+    .word       0x40E21F99
     .word       0x45C20003
     .word       0x00000000
     .word       0x0C0045BF
@@ -2665,9 +2788,9 @@ _DefaultInterrupt:              # 0x9D001F28
 
     .ent        EZBL_mon_putc
     .type       EZBL_mon_putc, @function
-EZBL_mon_putc:                  # 0x9D001F58
+EZBL_mon_putc:                  # 0x9D002148
     .type       _mon_putc, @function
-_mon_putc:                      # 0x9D001F58
+_mon_putc:                      # 0x9D002148
     .set        micromips
     .insn
     .word       0x45464FF1
@@ -2677,8 +2800,8 @@ _mon_putc:                      # 0x9D001F58
     .word       0x00007400
     .word       0x1A1D0C00
     .word       0xFC9C0010
-    .word       0x6E898030
-    .word       0x0D367680
+    .word       0x6E898034
+    .word       0x0DC07680
     .word       0x4506EF01
     .word       0x4C11459F
     .size       _mon_putc, . - _mon_putc   # 44
@@ -2687,7 +2810,7 @@ _mon_putc:                      # 0x9D001F58
 
     .ent        EZBL_CalcUxBRGH
     .type       EZBL_CalcUxBRGH, @function
-EZBL_CalcUxBRGH:                # 0x9D001F84
+EZBL_CalcUxBRGH:                # 0x9D002174
     .set        micromips
     .insn
     .word       0x0C408E93
@@ -2706,17 +2829,17 @@ EZBL_CalcUxBRGH:                # 0x9D001F84
 
     .ent        EZBL_mon_getc
     .type       EZBL_mon_getc, @function
-EZBL_mon_getc:                  # 0x9D001FAE
+EZBL_mon_getc:                  # 0x9D00219E
     .type       _mon_getc, @function
-_mon_getc:                      # 0x9D001FAE
+_mon_getc:                      # 0x9D00219E
     .set        micromips
     .insn
     .short      0x4FF1
     .word       0xAE05CBE7
-    .word       0x8034FCBC
+    .word       0x8038FCBC
     .word       0x40E26950
     .word       0x6E090007
-    .word       0x03FD7680
+    .word       0x11487680
     .word       0xCC03EF01
     .word       0x0010145D
     .word       0x4BE7ED7F
@@ -2727,13 +2850,13 @@ _mon_getc:                      # 0x9D001FAE
 
     .ent        NOW_Wait
     .type       NOW_Wait, @function
-NOW_Wait:                       # 0x9D001FD4
+NOW_Wait:                       # 0x9D0021C4
     .set        micromips
     .insn
     .word       0x45554FF1
-    .word       0x0FFB7680
+    .word       0x10F37680
     .word       0x0E220E04
-    .word       0x0FFB7680
+    .word       0x10F37680
     .word       0x05950C00
     .word       0x1B900203
     .word       0xFFF840A3
@@ -2744,9 +2867,9 @@ NOW_Wait:                       # 0x9D001FD4
 
     .ent        NOW_32
     .type       NOW_32, @function
-NOW_32:                         # 0x9D001FF6
+NOW_32:                         # 0x9D0021E6
     .type       NOW_64, @function
-NOW_64:                         # 0x9D001FF6
+NOW_64:                         # 0x9D0021E6
     .set        micromips
     .insn
     .short      0x0049
@@ -2764,7 +2887,7 @@ NOW_64:                         # 0x9D001FF6
 
     .ent        EZBL_RAMCompare
     .type       EZBL_RAMCompare, @function
-EZBL_RAMCompare:                # 0x9D002016
+EZBL_RAMCompare:                # 0x9D002206
     .set        micromips
     .insn
     .short      0x0C60
@@ -2786,11 +2909,11 @@ EZBL_RAMCompare:                # 0x9D002016
 
     .ent        EZBL_RAMCopyEx
     .type       EZBL_RAMCopyEx, @function
-EZBL_RAMCopyEx:                 # 0x9D00204C
+EZBL_RAMCopyEx:                 # 0x9D00223C
     .set        micromips
     .insn
     .word       0xCBE54FF5
-    .word       0x0E727680
+    .word       0x0F8A7680
     .word       0x01220D26
     .word       0x4BE51150
     .word       0x4C0D459F
@@ -2802,26 +2925,23 @@ EZBL_RAMCopyEx:                 # 0x9D00204C
     .word       0x2DE540ED
     .word       0xEC4A3773
     .word       0xC02F3D41
-    .word       0x43414D48
-    .word       0x52524520
-    .word       0x0C000000
-    .size       EZBL_RAMCopyEx, . - EZBL_RAMCopyEx   # 64
+    .size       EZBL_RAMCopyEx, . - EZBL_RAMCopyEx   # 52
     .end        EZBL_RAMCopyEx
 
     .ent        LEDSet
     .type       LEDSet, @function
-LEDSet:                         # 0x9D00208C
+LEDSet:                         # 0x9D002270
     .set        micromips
     .insn
     .word       0x9D0041A5
-    .word       0x03C4D680
-    .word       0x206030A5
+    .word       0x0E44D680
+    .word       0x225030A5
     .size       LEDSet, . - LEDSet   # 12
     .end        LEDSet
 
     .ent        EZBL_WriteROMEx
     .type       EZBL_WriteROMEx, @function
-EZBL_WriteROMEx:                # 0x9D002098
+EZBL_WriteROMEx:                # 0x9D00227C
     .set        micromips
     .insn
     .word       0xBFC041B9
@@ -2832,13 +2952,23 @@ EZBL_WriteROMEx:                # 0x9D002098
     .size       EZBL_WriteROMEx, . - EZBL_WriteROMEx   # 20
     .end        EZBL_WriteROMEx
 
-    .ent        EZBL_FIFOPeek
-    .type       EZBL_FIFOPeek, @function
-EZBL_FIFOPeek:                  # 0x9D0020AC
+    .ent        EZBL_FIFORead
+    .type       EZBL_FIFORead, @function
+EZBL_FIFORead:                  # 0x9D002290
     .set        micromips
     .insn
-    .word       0x0B84D680
-    .word       0xFFFFEF81
+    .word       0x0C0ED680
+    .short      0x0CE0
+    .size       EZBL_FIFORead, . - EZBL_FIFORead   # 6
+    .end        EZBL_FIFORead
+
+    .ent        EZBL_FIFOPeek
+    .type       EZBL_FIFOPeek, @function
+EZBL_FIFOPeek:                  # 0x9D002296
+    .set        micromips
+    .insn
+    .short      0xD680
+    .word       0xEF810C0E
     .word       0x0C0045BF
     .word       0x0C0045BF
     .word       0xFFFFFFFF
@@ -3184,129 +3314,7 @@ EZBL_FIFOPeek:                  # 0x9D0020AC
     .word       0xFFFFFFFF
     .word       0xFFFFFFFF
     .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .word       0xFFFFFFFF
-    .size       EZBL_FIFOPeek, . - EZBL_FIFOPeek   # 1876
+    .size       EZBL_FIFOPeek, . - EZBL_FIFOPeek   # 1386
     .end        EZBL_FIFOPeek
     .popsection
 
@@ -3395,7 +3403,7 @@ EZBL_VectorDispatch0000:        # 0xBFC00000
     .word       0x00736276
     .word       0xFA629950
     .word       0xFC9C2940
-    .word       0x41A3802C
+    .word       0x41A38030
     .word       0x50635566
     .word       0x05C79D89
     .word       0x2940F862
@@ -3420,10 +3428,10 @@ __EZBL_WriteROMEx:              # 0xBFC0015A
     .word       0x0E260EA5
     .word       0x0064F8FE
     .word       0x1068209E
-    .word       0x802CFE5C
+    .word       0x8030FE5C
     .word       0xFA5E4E42
     .word       0xF81C0020
-    .word       0x2F4F802C
+    .word       0x2F4F8030
     .word       0xDEAD5040
     .word       0x00329446
     .word       0x41AC2546
@@ -3485,7 +3493,7 @@ __EZBL_WriteROMEx:              # 0xBFC0015A
     .word       0x0C000045
     .word       0x0CD786DC
     .word       0x9D0041A3
-    .word       0x1EF73043
+    .word       0x20E73043
     .word       0x0024F8FE
     .word       0xF9FE45C2
     .word       0xFCFE0028
@@ -3500,24 +3508,24 @@ __EZBL_WriteROMEx:              # 0xBFC0015A
     .word       0x0026B4A2
     .word       0xB4440C00
     .word       0x0C000023
-    .word       0x802CFC5C
+    .word       0x8030FC5C
     .word       0x0018FCFE
     .word       0xFC7E6D2E
     .word       0x05340020
-    .word       0x802CF85C
+    .word       0x8030F85C
     .word       0x0064FC7E
     .word       0x0400D043
     .word       0x41A38D07
     .word       0x3043BF80
     .word       0x30803990
     .word       0xAA235743
-    .word       0x802CFCDC
+    .word       0x8030FCDC
     .word       0x001CFC5E
     .word       0x0C97C844
     .word       0xBFC041A3
     .word       0x00313043
     .word       0xEE8245E2
-    .word       0x802CF81C
+    .word       0x8030F81C
     .word       0x000832F7
     .word       0xA1D002D4
     .word       0xA95002D5
@@ -4883,6 +4891,8 @@ EZBL_VectorDispatch0480:        # 0xBFC00480
     .type       NOW_systemFrequency, @object
     .weak       NOW_us
     .type       NOW_us, @object
+    .weak       strtAddressGlob
+    .type       strtAddressGlob, @object
     .weak       UART2_RxFifo
     .type       UART2_RxFifo, @object
     .weak       UART2_RxFifoBuffer
@@ -4990,6 +5000,7 @@ EZBL_VectorDispatch0480:        # 0xBFC00480
     .weak       _mon_getc
     .weak       _mon_putc
     .weak       main
+    .weak       memset
     .weak       strlen
     .weak       EZBL_VectorDispatch0000
     .weak       EZBL_VectorDispatch0380
@@ -5014,19 +5025,19 @@ EZBL_VectorDispatch0480:        # 0xBFC00480
 
 
 #----Bootloader symbol addresses----
-    .equ        EZBL_AppPreInstall, 0x80000328
+    .equ        EZBL_AppPreInstall, 0x8000032C
     .equ        EZBL_bootCtx, 0x80000208
-    .equ        EZBL_COM_RX, 0x80000330
-    .equ        EZBL_COM_TX, 0x80000334
+    .equ        EZBL_COM_RX, 0x80000334
+    .equ        EZBL_COM_TX, 0x80000338
     .equ        EZBL_COMBootIF, 0x80000200
-    .equ        EZBL_NVMKey, 0x8000033C
-    .equ        EZBL_STDIN, 0x80000344
-    .equ        EZBL_STDOUT, 0x80000340
+    .equ        EZBL_NVMKey, 0x80000340
+    .equ        EZBL_STDIN, 0x80000348
+    .equ        EZBL_STDOUT, 0x80000344
     .equ        EZBL_Vector56ISRPtr, 0x80000320
     .equ        EZBL_Vector56ISRPtr, 0x80000320
     .equ        EZBL_Vector57ISRPtr, 0x80000324
     .equ        EZBL_Vector57ISRPtr, 0x80000324
-    .equ        foundRO, 0x80000338
+    .equ        foundRO, 0x8000033C
     .equ        NOW_Fcy, 0x80000310
     .equ        NOW_microsecond, 0x8000031C
     .equ        NOW_millisecond, 0x80000314
@@ -5035,18 +5046,19 @@ EZBL_VectorDispatch0480:        # 0xBFC00480
     .equ        NOW_second, 0x80000318
     .equ        NOW_systemFrequency, 0x80000310
     .equ        NOW_us, 0x8000031C
+    .equ        strtAddressGlob, 0x80000328
     .equ        UART2_RxFifo, 0x800002B8
     .equ        UART2_RxFifoBuffer, 0x80000238
     .equ        UART2_TxFifo, 0x800002E0
     .equ        UART2_TxFifoBuffer, 0x80000298
-    .equ        EZBL_COMBaud, 0x9D002068
-    .equ        EZBL_LEDMap, 0x9D002060
-    .equ        EZBL_bootIDHash, 0x9D002070
-    .equ        EZBL_bootIDHash0, 0x9D002070
-    .equ        EZBL_bootIDHash1, 0x9D002074
-    .equ        EZBL_bootIDHash2, 0x9D002078
-    .equ        EZBL_bootIDHash3, 0x9D00207C
-    .equ        EZBL_bootloaderWakeKey, 0x9D0020A4
+    .equ        EZBL_COMBaud, 0x9D002258
+    .equ        EZBL_LEDMap, 0x9D002250
+    .equ        EZBL_bootIDHash, 0x9D002260
+    .equ        EZBL_bootIDHash0, 0x9D002260
+    .equ        EZBL_bootIDHash1, 0x9D002264
+    .equ        EZBL_bootIDHash2, 0x9D002268
+    .equ        EZBL_bootIDHash3, 0x9D00226C
+    .equ        EZBL_bootloaderWakeKey, 0x9D002288
     .equ        __crt0_exit, 0x9D0003A2
     .equ        _gp, 0x80008310
     .equ        EZBL_APP_ebase_address, 0x9D003000

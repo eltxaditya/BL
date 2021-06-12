@@ -55,6 +55,7 @@ extern volatile unsigned int __attribute__((section("sfrs"))) NVMKEY;
 extern volatile unsigned int __attribute__((section("sfrs"))) NVMPWP;
 extern volatile unsigned int __attribute__((section("sfrs"))) NVMBWP;
 
+unsigned int strtAddressGlob = 64;
 
 int __attribute__((weak)) EZBL_PreInstall(EZBL_FIFO *rxFromRemote, EZBL_FIFO *txToRemote, unsigned long fileSize, EZBL_APPID_VER *appIDVer);
 
@@ -412,8 +413,8 @@ int EZBL_Install2Flash(EZBL_INSTALL_CTX *s)
 
             case SM_ERASE:
                 workDone = 1;                               // This state always does something
-                if(EZBL_COM_TX->dataCount == 0u)            // Send -237 (0xFF13) keep-alive value while erasing
-                    EZBL_FIFOWrite16(EZBL_COM_TX, 0xFF13);  // 0x13 is an XOFF character to allow rudimentary file upload via an EZBL protocol unaware application at slower baud rates
+//                if(EZBL_COM_TX->dataCount == 0u)            // Send -237 (0xFF13) keep-alive value while erasing
+//                    EZBL_FIFOWrite16(EZBL_COM_TX, 0xFF13);  // 0x13 is an XOFF character to allow rudimentary file upload via an EZBL protocol unaware application at slower baud rates
                 if(cantReturn)
                     ClrWdt();
                 EZBL_NVMKey += s->getDataNextState + (0xFC21u - SM_IGNORING) + ((unsigned int)s->recHdr.len);      // Generate required unlock value for EZBL_EraseAppSpace() of 0xFC21. Should evaluate as 0x0000 += SM_IGNORING + 0xFC21 - SM_IGNORING + 0x0000.
@@ -422,7 +423,7 @@ int EZBL_Install2Flash(EZBL_INSTALL_CTX *s)
                     EZBL_printf(".");
                     break;                                  // execute without a long blocking delay, return periodically
                 }
-                EZBL_FIFOWrite16(EZBL_COM_TX, 0xFF11);      // 0x11 is an XON character to allow rudimentary file upload via a terminal application at slower baud rates
+//                EZBL_FIFOWrite16(EZBL_COM_TX, 0xFF11);      // 0x11 is an XON character to allow rudimentary file upload via a terminal application at slower baud rates
                 dataCount = EZBL_COM_RX->dataCount;         // Potentially could have spent a long time linearly getting here from SM_GET_HEADER which ate bytes, so refresh the count available
                 s->bytesRequested = 0;                      // Init flow control number
                 //s->state = SM_SET_UP_GET;
@@ -487,7 +488,30 @@ int EZBL_Install2Flash(EZBL_INSTALL_CTX *s)
                         EZBL_printf("\n  Requesting: %u bytes", i);
     #endif
                         s->bytesRequested += (unsigned short)i;
-                        EZBL_FIFOWrite16(EZBL_COM_TX, i);                   // Transmit a 16-bit flow control data request (number of bytes of free space we have/can accept if sent to us)
+                        
+                        //Transmit an AT command to sim868 instead of 16 bit flow control message 
+                        char cmndBuf[70]="at+fsread=C:\\User\\FTP\\blazon-gps.production.bl2,1,"; //200,64\0";
+                        unsigned short int  cmndBufPos = 50;          //now add number of bytes to be read
+                        cmndBuf[cmndBufPos++]='0' + i/10;
+                        cmndBuf[cmndBufPos++]='0' + i%10;
+                        cmndBuf[cmndBufPos++]=',' ;       //now add start add of bytes to be read from bl2 file
+                        unsigned int strtAddress = strtAddressGlob;
+                        unsigned short int numOut[6] = {0}, x=0;
+                        while(strtAddress){                           
+                            numOut[x++] = strtAddress%10;
+                            strtAddress /=10;
+                            }
+                            while(x--){
+                                cmndBuf[cmndBufPos++] = '0' + numOut[x];
+                            }
+                        cmndBuf[cmndBufPos++]='\r' ;
+                        cmndBuf[cmndBufPos++]='\n' ;
+                        cmndBuf[cmndBufPos]='\0' ;
+                        EZBL_FIFOWriteStr(EZBL_COM_TX,cmndBuf);
+                        strtAddressGlob += i;
+                        
+                        
+//                        EZBL_FIFOWrite16(EZBL_COM_TX, i);                   // Transmit a 16-bit flow control data request (number of bytes of free space we have/can accept if sent to us)
                         workDone = 1;
                     }
                 }

@@ -211,9 +211,9 @@ EZBL_BOOTLOADER_SIZE             =   0x00002800;
 
 #define __EZBL_RAM_POINTERS_TO_ISRS                                                             \
     EZBL_Vector56ISRPtr = .; /* RAM pointer to UART 2 Reception ISR */                          \
-    . += 4; /* = 0x9D0013F5 for Boot UART2_RXTXInterrupt() ISR or App ISR address for IRQ 56 */ \
+    . += 4; /* = 0x9D001509 for Boot UART2_RXTXInterrupt() ISR or App ISR address for IRQ 56 */ \
     EZBL_Vector57ISRPtr = .; /* RAM pointer to UART 2 Transmission ISR */                       \
-    . += 4; /* = 0x9D0013F5 for Boot UART2_RXTXInterrupt() ISR or App ISR address for IRQ 57 */ 
+    . += 4; /* = 0x9D001509 for Boot UART2_RXTXInterrupt() ISR or App ISR address for IRQ 57 */ 
 
 #define __EZBL_IVT_VECTOR_SAVE                                                                  \
       LONG(56);                                                                                 \
@@ -226,7 +226,7 @@ EZBL_BOOTLOADER_SIZE             =   0x00002800;
 #define __EZBL_TOOLS_COMPUTED_BOOTLOADER_RESERVED_RAM                                           \
       EZBL_RAM_AT_0x80000200 0x80000200 :                                                       \
       {                                                                                         \
-        *(EZBL_RAM_AT_0x80000200); /* [0x80000200, 0x80000348), contains 328 bytes */           \
+        *(EZBL_RAM_AT_0x80000200); /* [0x80000200, 0x8000034C), contains 332 bytes */           \
       } > kseg0_data_mem                                                                        \
       EZBL_RAM_AT_0x80000350 0x80000350 :                                                       \
       {                                                                                         \
@@ -1222,7 +1222,7 @@ SECTIONS
 
   EZBL_RAM_AT_0x80000200 0x80000200 :
   {
-    *(EZBL_RAM_AT_0x80000200); /* [0x80000200, 0x80000348), contains 328 bytes */
+    *(EZBL_RAM_AT_0x80000200); /* [0x80000200, 0x8000034C), contains 332 bytes */
   } > kseg0_data_mem
   EZBL_RAM_AT_0x80000350 0x80000350 :
   {
